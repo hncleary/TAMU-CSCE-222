@@ -1,0 +1,89 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+\usepackage{graphicx}
+\usepackage{subcaption}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-501,502}
+\chead{Fun Problem 12, 16 April}
+\rhead{Name: Hunter Cleary}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+
+\begin{document}
+
+\noindent
+Each fun problem is worth 2 Extra Credit points.\\
+Due: 20 April 2018 (Friday) before 11:59pm on gradescope (\url{gradescope.com}).\\
+\textit{Do not consult the internet to solve this problem.  Finding the solution online is cheating.}\\
+
+\noindent
+Once upon a time there was a princess.  A precocious princess, she was.  Every day, the princess picked a different castle to stay in, never staying in the same castle on consecutive days.  Her castles were all in a line along the same road (as shown below).  Every day, when she changes her castle, she always moves to an adjacent castle.  For example, if she is in Castle 3 today, tomorrow she could be in Castle 2 or Castle 4.
+
+% you should find or draw your own castles
+\begin{figure}[h]
+\begin{subfigure}[b]{0.24\textwidth}
+\centering
+\includegraphics[height=100px]{castle1}
+\caption{Castle 1}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\centering
+\includegraphics[height=100px]{castle2}
+\caption{Castle 2}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\centering\includegraphics[height=100px]{castle3}
+\caption{Castle 3}
+\end{subfigure}
+\begin{subfigure}[b]{0.24\textwidth}
+\centering
+\includegraphics[height=100px]{castle4}
+\caption{Castle 4}
+\end{subfigure}
+\end{figure}
+
+\noindent
+There was also plumber.  A patient plumber, he was.  Every day, the plumber would pick one of the castles and knock on the front gate to ask if the princess was there.  If the princess was not there, he would go home and then try again the next day.  Unlike the princess, who can move only one castle per day, the plumber can go to any one (but only one) of the castles each day.  He kept trying until he eventually found the princess. \\
+
+\noindent
+\begin{compactenum}
+\item In the case of 4 castles, what strategy does the plumber use to guarantee that he will eventually (after some finite number of steps) find the princess? \ \textit{There are no tricks or wordplay.  No warps or wormholes.  No feedback after knocking on the gate other than "sorry, the princess is in another castle" or the search ending with the princess found.  The solution is mathematical.}\ \\
+\ \\
+Start at the first castle, check it consecutively for 4 days. Move to the second castle, check it consecutively for 3 days. Check the third castle for 2 days. After a maximum of 9 days the princess should be found.
+\ \\
+The number of days decreases as the maximum number of adjacent moves that the princess can make decreases.
+\ \\
+\item What is the maximum number of days required, using your strategy, for the plumber to be guaranteed to find the princess amongst her 4 castles?\ \\
+\ \\
+9 days
+
+\ \\
+\item If you think 4 castles was too easy, find a strategy for 5 castles and then for 6 castles.  At most how many days are required for each of those cases?\ \\
+\ \\
+5 Castles = 5+4+3+2 = 14\ \\
+6 Castles = 6+5+4+3+2 = 20\ \\
+\ \\
+\item If you can do that, give the general strategy for finding the princess amongst $n$ castles and specify the maximum number of days required to guarantee that she is found.\ \\
+\ \\
+From castle 1 to castle n, where a is the number of consecutive days the plumber must visit the respective castle $a_1 = n, a_2 = n-1, a_3 = n-2 \dots a_m = n-(m-1)$.\ \\
+\ \\
+The maximum number of days will be $(n+1)/2$\ \\
+
+\ \\
+\end{compactenum}
+\end{document}

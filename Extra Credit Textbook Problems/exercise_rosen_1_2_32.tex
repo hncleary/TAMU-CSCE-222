@@ -1,0 +1,59 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 32
+\begin{problem}[Rosen.1.2.32]\ \\
+\ \\
+The police have three suspects for the murder of Mr.
+Cooper: Mr. Smith, Mr. Jones, and Mr. Williams. Smith,
+Jones, and Williams each declare that they did not kill
+Cooper. Smith also states that Cooper was a friend of
+Jones and that Williams disliked him. Jones also states
+that he did not know Cooper and that he was out of town
+the day Cooper was killed. Williams also states that he saw both Smith and Jones with Cooper the day of the
+killing and that either Smith or Jones must have killed
+him. Can you determine who the murderer was if:\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item one of the three men is guilty, the two innocent men
+are telling the truth, but the statements of the guilty
+man may or may not be true?
+\item innocent men do not lie?
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}} 
+\item
+One of three men is guilty, two innocent men are telling the truth, but statements of the guilty man may or may not be true.\ \\
+There are a total of three possibilities of who the innocent men may be:\ \\
+\ \\
+Suppose smith and Jones are innocent. A contradiction of statements is obtained that Smith said Jones was Cooper’s friend whereas Jones denied knowing Cooper.\ \\
+\ \\
+Suppose Jones and Cooper are innocent. A contradiction is obtained that Jones said he was not in town and also didn't know Cooper, where William said Jones and Cooper were together showing that they both knew each other and were in town.\ \\
+\ \\
+Therefore, the two persons whose statements are not contradicting are that of Smith and Williams implying they must be telling the truth.\ \\
+\ \\
+Thus, from Williams’s statement, it can be found that Jones is lying as he had said he did not know Cooper when in actual he was with him.\ \\
+\ \\
+Thus Jones is the murderer.
+\ \\
+\item Innocent men do not lie.\ \\
+\ \\
+Suppose all men are innocent. Then all the statements they have given have to be true. However that is not the case here, it may be that more than one of them is guilty.\ \\
+\ \\
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

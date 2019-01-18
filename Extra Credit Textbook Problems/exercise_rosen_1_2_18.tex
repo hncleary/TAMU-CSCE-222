@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 18
+\begin{problem}[Rosen.1.2.18]\ \\
+\ \\
+When planning a party you want to know whom to invite.
+Among the people you would like to invite are three
+touchy friends.You know that if Jasmine attends, she will
+become unhappy if Samir is there, Samir will attend only
+if Kanti will be there, and Kanti will not attend unless Jasmine
+also does.Which combinations of these three friends
+can you invite so as not to make someone unhappy?\ \\
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\noindent
+Let these statements stand:\ \\
+j: jasmine attends the party\ \\
+s: samir attends the party\ \\
+k: kanti attends th party\ \\
+\ \\
+If Jasmine attends, then she will not be happy if Samir is there. $j \rightarrow \neg s$\ \\
+Samir will only attend if Kanti is there $k \rightarrow s$\ \\
+Kanti wil not attend unless Jasmine is there $k \rightarrow j \leftrightarrow (\neg k \vee j)$\ \\
+\ \\
+Therefore, only two combinations are possible:\ \\
+(1) Jasmine and Kanti must be invited together\ \\
+(2) Jasmine is invited alone\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

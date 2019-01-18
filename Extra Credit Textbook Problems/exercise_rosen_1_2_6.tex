@@ -1,0 +1,40 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.6]\ \\
+You can upgrade your operating system only if you have
+a 32-bit processor running at 1 GHz or faster, at least
+1 GB RAM, and 16 GB free hard disk space, or a 64-
+bit processor running at 2 GHz or faster, at least 2 GB
+RAM, and at least 32 GB free hard disk space. Express
+you answer in terms of u: “You can upgrade your operating
+system,” b32: “You have a 32-bit processor,” b64:
+“You have a 64-bit processor,” g1: “Your processor runs
+at 1 GHz or faster,” g2: “Your processor runs at 2 GHz or
+faster,” r1: “Your processor has at least 1 GB RAM,” r2:
+“Your processor has at least 2 GB RAM,” h16: “You have
+at least 16 GB free hard disk space,” and h32: “You have
+at least 32 GB free hard disk space.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+$u \rightarrow ((b32 \wedge g1 \wedge r1 \wedge h16) \vee (b64 \wedge g2 \wedge r2 \wedge h32)) $
+\end{compactenum}
+\end{solution}
+
+\end{document}

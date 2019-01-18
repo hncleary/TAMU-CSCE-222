@@ -1,0 +1,32 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.2]\ \\
+You can see the movie only if you are over 18 years old
+or you have the permission of a parent. Express your answer
+in terms of m: “You can see the movie,” e: “You are
+over 18 years old,” and p: “You have the permission of a
+parent.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+$m \rightarrow ( e \wedge p)$
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.9]\ \\
+Are these system specifications consistent? “The system
+is in multiuser state if and only if it is operating normally.
+If the system is operating normally, the kernel is functioning.
+The kernel is not functioning or the system is
+in interrupt mode. If the system is not in multiuser state,
+then it is in interrupt mode. The system is not in interrupt
+mode.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The system is in a multi user state\ \\
+q: The system is operating normally\ \\
+r: The kernel is functioning\ \\
+s: The system is in intrerrupt mode\ \\
+\ \\
+The following can be written with the given propositions:\ \\
+1. $p \leftrightarrow q$\ \\
+2. $q \rightarrow r $\ \\
+3. $\neg r \wedge s$\ \\
+4. $\neg p \rightarrow s$\ \\
+5. $\neg s$ \ \\
+\ \\
+All will result in true except for the 4th proposition. The value of $\neg p$ is true and the value of s is false so the result is false.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,63 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-501,502}
+\chead{Fun Problem 6, 26 February}
+\rhead{Name: Hunter Cleary}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+
+\begin{document}
+
+\noindent
+Each fun problem is worth 2 Extra Credit points.\\
+Due: 2 March 2018 (Friday) before 11:59pm on gradescope (\url{gradescope.com}).\\
+
+\noindent
+A set $S$ is \textit{countable} if there exists a one-to-one mapping $f:S\to\mathbb{N}$.\\
+If $f$ is also onto (so that $f$ is a bijection), then $S$ is \textit{countably infinite}.\\
+For example, $\mathbb{Z}$ is countably infinite because there exists the following bijective function which maps the integers to the natural numbers:
+$$f(z)=\left\{
+\begin{array}{ll}
+2z & z > 0\\
+1-2z & z \leq 0
+\end{array}\right.$$
+Consider a hypothetical hotel which has a countably infinite number of rooms, all of which are occupied.\\
+Even though all rooms are occupied, it is in fact still possible to accommodate additional guests.\\
+How would you propose to accommodate the new guests in the following situations:\\
+\textit{You can also draw pictures of the situations and solutions for more fun.}
+\begin{enumerate}
+\item A single guest arrives.\ \\ \ \\
+If a single guest were to arrive, the guests currently in rooms would need to be told to move to the room n+1. (Where n is the number of their current hotel room.) The single arriving guest could then occupy room #1.
+\ \\ 
+\item A bus with a finite number, say $n$, of guests arrives.
+\ \\ \ \\
+If a finite number of guests were to arrive, the guests currently in rooms would need to be told to move to the room n+m. (Where n is the number of their current hotel room and m is the finite number of guests arriving.) The arriving guests could then occupy the now vacant rooms.
+\ \\ \ \\
+\item A bus with a countably infinite number of guests arrives.
+\ \\ \ \\
+If a countably infinite number of guests arrived, the guests currently in rooms would need to be told to move to the room 2n. (Where n is the number of their current hotel room.) This would create another countably infinite set of rooms, allowing the newcomers to, in order, occupy the odd numbered rooms. 
+\end{enumerate}
+
+\ \\ \ \\ \ \\
+
+
+
+
+\end{document}

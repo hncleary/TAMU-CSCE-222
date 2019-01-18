@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.3]\ \\
+You can graduate only if you have completed the requirements
+of your major and you do not owe money to the
+university and you do not have an overdue library book.
+Express your answer in terms of g: “You can graduate,”
+m: “You owe money to the university,” r: “You have completed
+the requirements of your major,” and b: “You have
+an overdue library book.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+$g \rightarrow (r \wedge (\neg m) \wedge (\neg b))$
+\end{compactenum}
+\end{solution}
+
+\end{document}

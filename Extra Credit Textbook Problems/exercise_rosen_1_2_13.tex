@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 13
+\begin{problem}[Rosen.1.2.13]\ \\
+What Boolean search would you use to look for Web
+pages about beaches in New Jersey? What if you wanted
+to find Web pages about beaches on the isle of Jersey (in
+the English Channel)?
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+"Boolean search is a type of search allowing users to combine keywords with operators (or modifiers) such as AND, NOT and OR to further produce more relevant results."\ \\
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item
+\textbf{Search for:}\ \\
+"beaches AND new jersey"\ \\
+\ \\
+\item
+\textbf{Search for:}\ \\
+"beaches AND jersey  OR english channel AND NOT new"
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

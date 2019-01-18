@@ -1,0 +1,54 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 24
+\begin{problem}[Rosen.1.2.24]\ \\
+% Delete from 19 - 23
+\ \\
+Exercises 24 $\rightarrow$ 31 relate to inhabitants of an island on which
+there are three kinds of people: knights who always tell the
+truth, knaves who always lie, and spies (called normals by
+Smullyan [Sm78]) who can either lie or tell the truth. You
+encounter three people, A, B, and C. You know one of these
+people is a knight, one is a knave, and one is a spy. Each of the
+three people knows the type of person each of other two is. For
+each of these situations, if possible, determine whether there
+is a unique solution and determine who the knave, knight, and
+spy are. When there is no unique solution, list all possible
+solutions or state that there are no solutions.\ \\
+\ \\
+\textbf{24.} A says “C is the knave,” B says, “A is the knight,” and C
+says “I am the spy.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+%\textit{Propositions}:\ \\
+\ \\
+\noindent
+First, B cannot be a knight. Suppose B becomes a knight , then A will also have to be one. But both of them cannot be knights.\ \\
+\ \\
+C cannot be a knight; his statement will not be true. \textbf{A has to be a knight}, and as a result of his statement,\textbf{C will be a knave}. By method of elimination, \textbf{B will be a spy}. 
+
+
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

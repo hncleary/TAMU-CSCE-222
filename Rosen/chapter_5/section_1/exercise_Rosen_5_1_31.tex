@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+\usepackage[ruled]{algorithm2e}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+
+\begin{document}
+
+
+% Chapter 5.1, Problem 31
+\begin{problem}[Rosen.5.1.25]\ \\
+Use mathematical induction to prove that 2 divides $n^2 + n$ whenever n is a positive integer.
+\end{problem}
+
+\begin{solution}\ \\
+$P(n) :=$ 2 divides $n^2 + n$ when n $> 0$\\
+\\
+\textbf{Basis Step:} $P(0)$
+
+2/(1^2+1) = 2/2 = 1
+
+$\therefore P(0)$ holds.\\
+\\
+\textbf{Inductive Step:} $P(k) \to P(k+1)$
+
+Assume $P(k)$ for some $k \geq 0$: 2x = $k^2 + k$ when n $> 0$.
+
+Show $P(k+1):$2x= $(k+1)^2 + (k+1)$ when n $> 0$
+
+$2x = k^2+2k+1 + k+1$
+
+$=k^2+k+2k+2 $
+
+$= 2x +2(k+1)$ By IH
+
+$= 2x + 2x$
+
+$= 4x$
+
+$= 2(2x)$
+
+$= 2x$
+
+$\therefore P(k) \to P(k+1)$ holds.\\
+\\
+$\therefore P(n)$ holds for all $n > 0$ by PMI. \qed
+
+\end{solution}
+
+\end{document}

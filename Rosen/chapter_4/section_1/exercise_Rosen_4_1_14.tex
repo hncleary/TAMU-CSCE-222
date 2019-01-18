@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+\usepackage[ruled]{algorithm2e}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+
+\begin{document}
+
+
+% Chapter 4.1, Problem 14
+\begin{problem}[Rosen.4.1.14]\ \\
+Prove that for every positive integer n, $\displaystyle \sum_{i=1}^n i*2^i = (n-1)*2^{n+1}+2$.
+\end{problem}
+
+\begin{solution}\ \\
+{\color{red}
+\noindent
+Let $P(n):=$ $\sum_{i=1}^{n} 2^{i} i = 2^{n + 1} \left(n - 1\right) + 2$, when $n\geq 1$\\
+\\
+\textbf{Basis Step:} $P(1)$ \\
+
+$\sum_{i=1}^{1} 2^{i} i = 2$\\
+
+$2^{1 + 1} \left(1 - 1\right) + 2 = 2$\\
+
+$\therefore  P(1)$ holds.\\
+\\
+\textbf{Inductive Step:} $P(k)\implies P(k+1)$\\
+
+Assume $P(k)$ for some $k\geq 1:$ $\sum_{i=1}^{k} 2^{i} i = 2^{k + 1} \left(k - 1\right) + 2$\\
+
+Show $P(k+1):$ $\sum_{i=1}^{k + 1} 2^{i} i = 2^{k + 2} k + 2$\\
+
+$\sum_{i=1}^{k + 1} 2^{i} i = 2^{k + 1} \left(k + 1\right) + \sum_{i=1}^{k} 2^{i} i$\\
+
+$ = 2^{k + 1} \left(k - 1\right) + 2^{k + 1} \left(k + 1\right) + 2$  \hfill (by inductive hypothesis)\\
+
+$ = 2 \cdot 2^{k+1} k + 2 = 2^{k + 2} k + 2$\\
+
+$\therefore  P(k)\implies P(k+1)$ holds for $k \geq 1$.\\
+
+\noindent
+$\therefore P(n)$ holds for all $n \geq 1$ by mathematical induction. \qed
+}
+\end{solution}
+
+\end{document}

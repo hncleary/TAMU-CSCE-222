@@ -1,0 +1,58 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.1.7]\ \\
+\ \\
+Suppose that during the most recent fiscal year, the annual
+revenue of Acme Computer was 138 billion dollars
+and its net profit was 8 billion dollars, the annual revenue
+of Nadir Software was 87 billion dollars and its net profit
+was 5 billion dollars, and the annual revenue of Quixote
+Media was 111 billion dollars and its net profit was
+13 billion dollars. Determine the truth value of each of
+these propositions for the most recent fiscal year.
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Quixote Media had the largest annual revenue.
+\item Nadir Software had the lowest net profit and Acme
+Computer had the largest annual revenue.
+\item Acme Computer had the largest net profit or Quixote
+Media had the largest net profit.
+\item If Quixote Media had the smallest net profit, then
+Acme Computer had the largest annual revenue.
+\item Nadir Software had the smallest net profit if and only
+if Acme Computer had the largest annual revenue
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\noindent 
+\textit{Propositions}:\ \\
+p: The annual revenue of Acme Computer was 138 billion dollars and its net profit was 8 billion dollars\ \\
+q: The annual revenue of Nadir Software was 87 billion dollars and its net profit
+was 5 billion dollars\ \\
+r: The annual revenue of Quixote Media was 111 billion dollars and its net profit was
+13 billion dollars\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item This statement is false.
+\item Propositions $p \wedge q$ where p is true and q is true. $T \wedge T \equiv T$. $\therefore$ True
+\item Propositions $p \vee q$ where p is false and q is true. $F \vee T \equiv T$. $\therefore$ True
+\item Propositions $p \xrightarrow{} q$ where p is false and q is true. $T \xrightarrow{} F \equiv T$. $\therefore$ True
+\item Propositions $p \leftrightarrow q$ where p is true and q is true. $T \leftrightarrow T \equiv T$. $\therefore$ True
+\end{compactenum}
+\end{solution}
+
+\end{document}

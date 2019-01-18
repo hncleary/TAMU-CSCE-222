@@ -1,0 +1,56 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 35
+\begin{problem}[Rosen.1.2.35]\ \\
+\ \\
+A detective has interviewed four witnesses to a crime.
+From the stories of the witnesses the detective has concluded
+that if the butler is telling the truth then so is the
+cook; the cook and the gardener cannot both be telling the
+truth; the gardener and the handyman are not both lying;
+and if the handyman is telling the truth then the cook is
+lying. For each of the four witnesses, can the detective determine
+whether that person is telling the truth or lying?\ \\
+Explain your reasoning.\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}} 
+\textit{Propositions}:\ \\
+B: truth spoken by butler\ \\
+C: truth spoken by cook\ \\
+G: truth spoken by gardener\ \\
+H: truth spoken by handyman\ \\
+\ \\
+\textit{Expressions}:\ \\
+$B \rightarrow C $\ \\
+$\neg(C \wedge G) $\ \\
+$G \vee H$\ \\
+$H \rightarrow \neg C$\ \\
+\ \\
+Suppose that B is truthful. Then C is also true. This implies that G is false. Then H will be true. Then the fourth proposition is not valid. Therefore, B and C cannot be true. \textbf{The butler and cook are lying}.\ \\
+\ \\
+Therefore, \textbf{either the handyman or the gardener is telling the truth} ( $G \vee H$)
+\ \\
+
+
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

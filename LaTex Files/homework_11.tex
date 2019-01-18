@@ -1,0 +1,260 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+% settings for algorithm2e psuedocode style
+\usepackage[ruled, linesnumbered, commentsnumbered, noend]{algorithm2e}
+% a few parameters that are set to typeset pseudocode
+\SetAlCapNameSty{textsc}
+\SetProcNameSty{textsc}
+\SetProcArgSty{textsc}
+\SetKw{KwBy}{by}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope and correctly assign problems to pages?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to receive credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{11}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{13 April 2018 (Friday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+\bigskip
+
+\noindent
+\textbf{Mathematical Induction Template:}
+
+\noindent
+Let $P(n):=$ PREDICATE, when $n\geq BASE\ CASE$\\
+\\
+\textbf{Basis Step:} $P(BASE\ CASE)$ \\
+
+WORK TO SHOW BASE CASE\\
+
+$\therefore  P(BASE\ CASE)$ holds.\\
+\\
+\textbf{Inductive Step:} $P(k)\implies P(k+1)$
+
+Assume $P(k)$ for some $k\geq BASE\ CASE:$ STATE $P(k)$
+
+Show $P(k+1):$ STATE $P(k+1)$\\
+
+WORK
+
+USE INDUCTIVE HYPOTHESIS \hfill (by inductive hypothesis)
+
+WORK TO SHOW $P(k+1)$\\
+
+$\therefore  P(k)\implies P(k+1)$ holds for $k \geq BASE\ CASE$.\\
+
+\noindent
+$\therefore P(n)$ holds for all $n \geq BASE\ CASE$ by mathematical induction. \qed
+
+\newpage
+
+% sequences and sums + induction
+\begin{problem} (25 points)\\
+Let $P(n)$ be the statement that $\displaystyle \sum_{i=1}^n i^3=\left(\frac{n(n+1)}{2}\right)^2$ for positive integer $n$.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item What is the statement $P(1)$?
+\item Show that $P(1)$ is true, completing the basis step of the proof.
+\item What is the inductive hypothesis?
+\item What do you need to prove in the inductive step?
+\item Complete the inductive step, identifying where you use the inductive hypothesis.
+\item Explain why these steps prove that $P(n)$ is true for all $n\geq 1$.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textbf{a.} \ P(1) = 1\ \\
+\ \\
+\textbf{b.} \ $\sum_{i=1}^1 i^3 = \left(\frac{1(1+1)}{2}\right)^2$\ \\
+$1 = (2/2)^2$\ \\
+$1 = 1 \ \ \checkmark$\ \\
+\ \\
+\textbf{c.} \ P(k) for a positive integer k, $(1^3+ 2^3+\dots+k
+^3)$\ \\ 
+= $(k(k+ 1)/2)^2$\ \\
+\ \\
+\textbf{d.} \ Assume $P(k)$ holds, then prove that $P(k+1)$ holds.\ \\
+\ \\
+\textbf{e.} \ $(1^3+ 2^3+\dots+k^3)$ = $(k(k+ 1)/2)^2$\ \\
+$1^3+ 2^3+\dots+(k+1)^3)$ = $((k+1)((k+1) + 1)/2)^2$\ \ \ \tetbf{by IH}\ \\
+$ (k(k + 1)/2)^2 + (k + 1)^3$ =  $((k + 1)(k + 2)/2)^2$\ \\
+$((k + 1)(k + 2)/2)^2$  = $((k + 1)(k + 2)/2)^2$ \ \ \checkmark\ \\
+\ \\
+\textbf{f.} \ The basis step and the induction step have been performed.\ P(n) has been proven \\ \indent by mathematical induction.\ \\ 
+\ \\
+\end{solution}
+\newpage
+
+% recurrence relations + induction
+\begin{problem} (25 points)\\
+Solve the recurrence relation $a_n = 5a_{n-1}+4, a_0 = 4$ and prove your answer using mathematical induction.
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+$P(n) = 5^n + 4(5^n) - 1$\ \\
+\ \\
+\textbf{Base Case}\ \\
+$P(1) = 24$\ \\
+$5*4 + 4 = 5^1 + 4(5^1)-1$\ \\
+$24 = 24 $ \ \ \checkmark \ \\
+Therefore $P(1)$ holds\ \\
+\ \\
+\textbf{Induction Step}\ \\ 
+Show  $P(k) \xrightarrow{} P(k+1)$ for k \geq 1\ \\
+$5*k+4 + 5*(k+1)+4 + \dots + 5(a_{k-1})+4 = 5^k+4(5^k)-1$ \ \\
+$5(a_{k})+4 = 5^(k+1)+4(5^(k+1))-1$ \ by IH\ \\
+$5^n*(4)(5^{k+1}-1 = 5^{k+1}+4(5^{k+1})-1 $\ \ \checkmark\ \\
+\ \\
+\therefore \ $P(k) \xrightarrow{} P(k+1)$\ \\
+\therefore \ $P(k) holds for all k \geq 0$\ \\
+\ \\
+\end{solution}
+
+\newpage
+
+% graphs + induction
+\begin{problem} (25 points)\\
+A guest at a party is a \textbf{celebrity} if this person is known by every other guest, but knows none of them. 
+There is at most one celebrity at a party\footnote{If there were two, they
+would know each other. A particular party may have no celebrity.}. 
+Your task is to find the celebrity, if one exists, at a party by asking only one type of question:
+asking a guest whether they know a second guest.
+Everyone must answer your questions truthfully.
+That is, if Alice and Bob are two people at the party, you can ask Alice whether she knows Bob; 
+she must answer truthfully.
+Use mathematical induction to show that if there are $n$ people at the party, then you can find the celebrity, if there is one, with at most $3(n-1)$ questions. 
+\textit{Hint: First, ask a question to eliminate one person as a celebrity. 
+Then use the inductive hypothesis to identify a potential celebrity.
+Finally, ask two more questions to determine whether that person is actually a celebrity.} 
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+For k people, k-1 questions can be asked to leave one potential celebrity remaining. The remaining candidate has 2k - 2 links to other people. With a total of 3k-4 questions you will know who the celebrity is.\ \\
+\ \\
+P(n) $\leq$ 3((n+1)-1)\ \\
+\ \\
+\textbf{Basis Step:} \ There will be at least 2 people at the party $(n=2)$. At most \textbf{two} questions are needed to find who does not know any other guests and decide who the celebrity is (if there is one).\ \\
+\ \\
+$2 \leq 3(n-1)$\ \\
+$2 \leq 3(2-1)$\ \\
+$2 \leq 3$\ \\
+Therefore P(2) holds.\ \\
+\ \\
+\textbf{Inductive Step} \ $P(k) \xrightarrow{} P(k+1)$\ \\
+\ \\
+Prove $P(k+1) for \  k \geq 1$\ \\
+No celebrity present := $3(k-1)$\ \\
+$3((k+1) -1) \leq 3((k+1)-1)$\ \\
+Celebrity present - \ \\
+\ \\
+It is possible to find the potential celebrity with 3(k-1) questions, in order to prove that the last possibility is indeed a celebrity, it will take another set of k-1 questions to see if the potential celebrity knows any of the other guests.
+\ \\ 
+
+\end{solution}
+
+\newpage
+
+% inductive loading
+\begin{problem} (25 points)\\
+Sometimes, we cannot use mathematical induction to prove a result we believe to be true, but we can use mathematical induction to prove a stronger result.  Because the inductive hypothesis of the stronger result provides more to work with, this process is called \textbf{inductive loading}. We will use inductive loading in this problem.\\
+\\
+Suppose that we want to prove that $$\prod_{i=1}^n \frac{2i-1}{2i} < \frac{1}{\sqrt{3n}}$$ for all positive integers $n$.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Show that if we try to prove this inequality using mathematical induction, the basis step works, but the inductive step fails.
+\item Show that mathematical induction can be used to prove the stronger inequality $$\prod_{i=1}^n \frac{2i-1}{2i} < \frac{1}{\sqrt{3n+1}}$$ for all $n>1$, which, together with a verification for the case where $n=1$, establishes the weaker inequality we originally tried to prove using mathematical induction.\\
+\textit{Note: $\displaystyle \frac{1}{x} > \frac{1}{x+\epsilon}$ when $\epsilon > 0$.}
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textbf{a.} \ \ \\
+\textbf{Basis Step} \ P(1) \ \\
+\ \\
+$\prod_{i=1}^1 \frac{2-1}{2} < \frac{1}{\sqrt{3}}$\ \\
+$(1/2) < 1/\sqrt{3}$ \checkmark \ \\
+\ \\
+\textbf{Inductive Step} \ $P(k) \xrightarrow{} P(k+1)$ for all k $\geq$ 1 \ \\
+\ \\
+$(1/2)*(3/4)*(5/6)*\dots*((2k-1)/(2k)) < 1/\sqrt{3k}$\ \\
+$(3/2)*(5/4)*(7/6)*\dots*((2(k+1)-1)/(2(k+1))) < 1/\sqrt{3(k+1)}$\ \textbf{by IH} \\
+\ \\
+$\therefore $ induction does not work. The LHS will continually become larger due to the variable in the numerator, while the RHS will become smaller due to the variable in the denominator. This invalidates the $<$ sign.\ \\
+\ \\
+\textbf{b.} \ \\
+\textbf{Basis Step}\ P(1) \ \\
+\ \\
+$\prod_{i=1}^1 \frac{2-1}{2} < \frac{1}{\sqrt{3+1}}$\ \\
+$(1/2) < 1/\sqrt{4}$ \checkmark \ \\
+\ \\
+\textbf{Inductive Step} \ $P(k) \xrightarrow{} P(k+1)$ for all k $\geq$ 1\ \\
+\ \\
+$(1/2)*(3/4)*(5/6)*\dots*((2k-1)/(2k)) < 1/\sqrt{3k + 1}$\ \\
+$(3/2)*(5/4)*(7/6)*\dots*((2(k+1)-1)/(2(k+1))) < 1/\sqrt{3(k+1)+1}$\ \textbf{by IH} \\
+$((2(k+1)-1)/(2(k+1))) < 1/\sqrt{3k+4}$ \ \checkmark \ \\
+\ \\  
+\therefore \ $P(k) \xrightarrow{} P(k+1)$\ \\
+\therefore \ $P(k) holds for all k \geq 0$\ \\
+\ \\
+
+\end{solution}
+
+
+
+\end{document}

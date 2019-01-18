@@ -1,0 +1,41 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 14
+\begin{problem}[Rosen.1.2.14]\ \\
+What Boolean search would you use to look for Web
+pages about hiking in West Virginia? What if you wanted
+to find Web pages about hiking in Virginia, but not in West
+Virginia?
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+"Boolean search is a type of search allowing users to combine keywords with operators (or modifiers) such as AND, NOT and OR to further produce more relevant results."\ \\
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item
+\textbf{Search for:}\ \\
+"hiking AND west virginia"\ \\
+\ \\
+\item
+\textbf{Search for:}\ \\
+"hiking AND virginia AND NOT west"
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

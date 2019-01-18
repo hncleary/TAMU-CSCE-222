@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.2, Problem 11
+\begin{problem}[Rosen.1.2.11]\ \\
+Are these system specifications consistent? “The router
+can send packets to the edge system only if it supports the
+new address space. For the router to support the new address
+space it is necessary that the latest software release
+be installed. The router can send packets to the edge system
+if the latest software release is installed, The router
+does not support the new address space.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The router can send packets to the edge system\ \\
+q: The router supports the new address system\ \\
+r: Latest software release is installed\ \\
+\ \\
+The following can be written with the given propositions:\ \\
+1. $p \rightarrow  q$\ \\
+2. $r \rightarrow q$\ \\
+3. $r \rightarrow p$\ \\
+4.$\neg q$ \ \\
+\ \\
+All propositions coincide. All 4 can be true at once. The system is consistent.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

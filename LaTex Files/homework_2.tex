@@ -1,0 +1,199 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to recieve credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{2}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{4 February 2017 (Sunday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+
+% PREDICATE LOGIC
+\begin{problem} (20 points)\\
+Let $S(x)$ be the statement ``$x$ has visited South Carolina'' where the domain consists of Texas A\&M students.  Express each of these quantifications in English.
+\begin{compactenum}
+\item $\exists x S(x)$
+\item $\forall x S(x)$
+\item $\neg\exists x S(x)$
+\item $\exists x \neg S(x)$
+\item $\neg \forall x S(x)$
+\item $\forall x \neg S(x)$
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item At least one student at Texas A\&M has visited California.\
+\item All students at Texas A\&M have visited California.\ 
+\item Not one student at Texas A\&M has visited California.\
+\item At least one student at Texas A\&M has not visited California.\ 
+\item Not all students at Texas A\&M have visited California.\ 
+\item All students at Texas A\&M hae not visited California.\ 
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% PREDICATE LOGIC
+\begin{problem} (20 points)\\
+Determine whether $\forall x (P(x) \iff Q(x)) \equiv  \forall x P(x) \iff \forall x Q(x)$. Justify your answer.
+\end{problem}
+
+
+\begin{solution}\ \\
+\indent To show that these are logically equivalent, it must be shown that these have the same truth value. Domain of discourse and predicates should not affect this. 
+
+If P(x) and Q(x) are true for every value in a domain, then $\forall x P(x) \ and \ \forall x Q(x)$ they are true. \textbf{The two statements are equivalent.}
+
+If $\exist$ had been used instead, the statements would not be equivalent, but since the domain is all possible values the conditions will always have matching truth values.
+\end{solution}
+
+%\newpage
+\ \\
+\ \\
+\ \\
+\\ \\ \\ \\ 
+% PREDICATE LOGIC
+\begin{problem} (20 points)\\
+Let $P(x):=$``$x$ is a professor'', $Q(x):=$``$x$ is ignorant'', and $R(x):=$``$x$ is vain'', where the domain for $x$ is all people.  Express each of these statements using quantifiers, logical operators, and the predicates $P(x)$, $Q(x)$, and $R(x)$.
+\begin{compactenum}
+\item All vain people are ignorant.
+\item Some professors are not ignorant.
+\item Some professors are not vain.
+\item Does (3) follow from (1) and (2)?
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item $ \forall x (R(x) \to Q(x))$
+\item $\neg \forall x (P(x)\to Q(x)) $
+\item $\neg \forall x (P(x)\to R(x)) $
+\item $Yes$
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% PREDICATE LOGIC
+\begin{problem} (20 points)\\
+The quantifier $\exists_1$ is the uniqueness quantifier, which may also be written $\exists!$.  The notation $\exists_1x P(x)$ [or $\exists!x P(x)$] states that ``there exists exactly 1 value of $x$ that satisfies $P(x)$''.  For example, $\exists_1x (1-x=0)$.  Using only universal and existential quantifiers along with logical operators,
+\begin{compactenum}
+\item express $\exists_1x P(x)$ (``there exists exactly 1 value of $x$ that satisfies $P(x)$'').
+\item express $\exists_2x P(x)$ (``there exist exactly 2 values of $x$ that satisfy $P(x)$'').
+\item express that there is exactly 1 pair of values $(x,y)$ that satisfies $P(x,y)$.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item $\exists x( P(x) \wedge \forall y (P(y) \to y = x))$\ \\
+\item $\exists y \exists z \forall x (P(x) \to ((z=x) \vee (y = x))$\  \\
+\item $\existsx\forall z \exists y \forall w (P(x) \to ((x=z) \wedge (y=w))) $\ \\ 
+
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% PREDICATE LOGIC
+\begin{problem} (20 points)\\
+Express each of these statements using quantifiers. Then form the negation of the statement so that no negation is to the left of a quantifier or outside of parentheses (e.g. $\neg (P(x) v Q(x))$ is unacceptable).  Next, express the negation in simple English. (Do not simply use the phrase ``It is not the case that...'')
+\begin{compactenum}
+\item Someone has lost more than one thousand dollars playing the lottery.
+\item No student in this class has chatted with exactly one other student.
+\item Some student in this class has sent an email to exactly two other students in this class.
+\item No student has solved every exercise in the textbook.
+\item Every student in this class has solved at least one exercise in every section of the textbook.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item Someone has lost more than one thousand dollars playing the lottery.\ \\
+Domain is every person.\ \\
+Let L(x) be the statement "x has lost more than 1,000 dollars playing the lottery."\ \\
+Original Statement: $\exists x L(x)$\ \\
+Negation: $\neg \exists x L(x) \ \equiv \ \forall x \neg L(x)$ \ \\
+Nobody has lost more than 1,000 dollar playing the lottery.
+\ \\ 
+\item No student in this class has chatted with exactly one other student.\ \\
+Domain is students in the class.\ \\
+Let C(x) be the statement "x has chatted with exactly one other student."\ \\
+Original: $\neg\exists x C(x)$\ \\
+Negation: $\exists x C(x)$\ \\ 
+At least one student has chatted with exactly one other student.\ \\
+\item  Some student in this class has sent an email to exactly two other students in this class.\ \\
+Domain is all students in the class.\ \\
+Let T(x) be the statement "x has sent an email to exactly two other students in this class."\ \\
+Original: $\exists x T(x)$\ \\
+Negation: $\neg \exists x T(x) \ \equiv \ \forall x \neg T(x)$\ \\
+No students have sent an email to exactly two other students in this class.\ \\
+\item No student has solved every exercise in the textbook.\ \\
+Domain is all students.\ \\
+Let S(x) be the statement "x has solved every exercise in the textbook."\ \\
+Original: $\neg \exists x S(x)$\ \\
+Negation: $\exists x S(x)$\ \\
+Some student has solved every exercise in the textbook.\ \\
+\item  Every student in this class has solved at least one exercise in every section of the textbook.\ \\
+Domain is students in the class.\ \\
+Let E(x) be the statement "x has solved at least one exercise in every section of the textbook."\ \\
+Original: $\forall x E(x)$\ \\
+Negation: $\neg \forall x E(x) \ \equiv \exists x \neg E(x) $\ \\
+There is a student in the class who hasn't solved at least one exercise in every section of the textbook.\ \\
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

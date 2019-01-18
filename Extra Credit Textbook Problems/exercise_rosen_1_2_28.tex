@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 28
+\begin{problem}[Rosen.1.2.28]\ \\
+% Delete from 19 - 23
+\ \\
+Exercises 24 $\rightarrow$ 31 relate to inhabitants of an island on which
+there are three kinds of people: knights who always tell the
+truth, knaves who always lie, and spies (called normals by
+Smullyan [Sm78]) who can either lie or tell the truth. You
+encounter three people, A, B, and C. You know one of these
+people is a knight, one is a knave, and one is a spy. Each of the
+three people knows the type of person each of other two is. For
+each of these situations, if possible, determine whether there
+is a unique solution and determine who the knave, knight, and
+spy are. When there is no unique solution, list all possible
+solutions or state that there are no solutions.\ \\
+\ \\
+\textbf{28.} A says “I am the knight,” B says, “A is not the knave,”
+and C says “B is not the knave.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+Consider a situation that A is the knight. If A says that “I am the knight” it is a true statement. If B says that “A is not the knave” it is also a true statement. So assume that B is a spy who tells truth. If C says that “B is not the knave” then this statement is also true. This is impossible because C would need to be a knight or a spy.\ \\
+\ \\
+Consider a situation that A is a knave. If A says that “I am the knight” then this is a false statement. If B says that “A is not the knave” then this is false statement. B is a spy who lies. If C says that “B is not the knave” then this statement is true. So C is the knight.\ \\
+\ \\
+\textbf{A is the knave, B is the spy and C is the knight}.
+
+
+
+
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,48 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 36
+\begin{problem}[Rosen.1.2.36]\ \\
+\ \\
+Four friends have been identified as suspects for an unauthorized
+access into a computer system. They have made
+statements to the investigating authorities. Alice said
+“Carlos did it.” John said “I did not do it.” Carlos said
+“Diana did it.” Diana said “Carlos lied when he said that
+I did it.”\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item If the authorities also know that exactly one of the
+four suspects is telling the truth, who did it? Explain
+your reasoning.
+\item If the authorities also know that exactly one is lying,
+who did it? Explain your reasoning
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+A: Alice said: “Carlos did it”\ \\
+J: John said: “I did not do it”\ \\
+C: Carlos said: “Diana did it”\ \\
+D: Diana said: “Carlos lied when he said that I did it”\ \\
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}  
+\item Carlos and Diana cannot be both lying. If Carlos is lying, then Diana would be telling the truth If Carlos is telling the truth, then Diana would be lying. Carlos or Diana is telling the truth. John is lying. \textbf{Therefore John did it.}
+\ \\
+\item Carlos and Diana cannot be both telling the truth, so the liar is either Carlos or Diana. Alice is telling the truth. \textbf{Therefore it was Carlos who did it.}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

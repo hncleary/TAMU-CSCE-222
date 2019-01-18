@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.1.6]\ \\
+Suppose that Smartphone A has 256 MB RAM and 32 GB ROM and the resolution of its camera is 8MP; Smartphone B has 288 MB RAM and 64 GB ROM, and the resolution of its camera is 4 MP; and Smartphone C has 128 MB RAM and 32 GB ROM, and the resolution of its camera is 5 MP. Determine the truth value of each of these propositions.
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\item Smartphone B has the most RAM of these three smartphones.
+\item Smartphone C had more ROM or a higher resolution camera than Smartphone B.
+\item Smartphone B has more RAM, more ROM, and a higher resolution camera than smartphone A.
+\item If Smartphone B has more RAM and more ROM than Smartphone C, then it also has a higher resolution camera.
+\item Smartphone A has more RAM than Smartphone  if and only if Smartphone B has more RAM than Smartphone A.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\noindent 
+\textit{Propositions}:\ \\
+p: Smartphone A has 256 MB RAM and 32 GB ROM and the resolution of its camera is 8MP\ \\
+q: Smartphone B has 288 MB RAM and 64 GB ROM, and the resolution of its camera is 4 MP\ \\
+r: Smartphone C has 128 MB RAM and 32 GB ROM, and the resolution of its camera is 5 MP\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item True, B has the most RAM of the 3 devices.
+\item Propositions $p \vee q$ where p is false and q is true. $F \vee T \equiv T$. $\therefore$ True
+\item Propositions $p \wedge q$ where p is true and q is false. $T \wedge F \equiv F$. $\therefore$ False
+\item Propositions $p \xrightarrow{} q$ where p is true and q is false. $T \xrightarrow{} F \equiv F$. $\therefore$ False
+\item Propositions $p \leftrightarrow q$ where p is false and q is true. $F \leftrightarrow T \equiv F$. $\therefore$ False
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,46 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.7
+]\ \\
+Express these system specifications using the propositions
+p “The message is scanned for viruses” and q “The
+message was sent from an unknown system” together
+with logical connectives (including negations).\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item “The message is scanned for viruses whenever the
+message was sent from an unknown system.”
+\item “The message was sent from an unknown system but
+it was not scanned for viruses.”
+\item “It is necessary to scan the message for viruses whenever
+it was sent from an unknown system.”
+\item “When a message is not sent from an unknown system
+it is not scanned for viruses.”
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The message is scanned for viruses.\ \\
+q: The message was sent from an unknown system.\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item $q \rightarrow p$
+\item $q \wedge \neg p$
+\item $q \rightarrow p $
+\item $\neg q \rightarrow \neg p$
+\end{compactenum}
+\end{solution}
+
+\end{document}

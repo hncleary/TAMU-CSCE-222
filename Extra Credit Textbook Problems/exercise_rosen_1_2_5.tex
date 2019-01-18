@@ -1,0 +1,36 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.5]\ \\
+You are eligible to be President of the U.S.A. only if you
+are at least 35 years old, were born in the U.S.A, or at the
+time of your birth both of your parents were citizens, and
+you have lived at least 14 years in the country. Express
+your answer in terms of e: “You are eligible to be President
+of the U.S.A.,” a: “You are at least 35 years old,”
+b: “You were born in the U.S.A,” p: “At the time of your
+birth, both of your parents where citizens,” and r: “You
+have lived at least 14 years in the U.S.A.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+$e \rightarrow (a \wedge (b \vee p) \wedge r)$
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,44 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.2, Problem 10
+\begin{problem}[Rosen.1.2.10]\ \\
+Are these system specifications consistent? “Whenever
+the system software is being upgraded, users cannot access
+the file system. If users can access the file system,
+then they can save new files. If users cannot save new
+files, then the system software is not being upgraded.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The software is upgraded\ \\
+q: Users can access the file system\ \\
+r: Users can save new files\ \\
+\ \\
+The following can be written with the given propositions:\ \\
+1. $p \rightarrow \neg q$\ \\
+2. $q \rightarrow r $\ \\
+3. $\neg r \rightarrow \neg p$\ \\
+\ \\
+All propositions coincide. The system is consistent.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

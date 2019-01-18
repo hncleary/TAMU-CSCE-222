@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.1.9]\ \\
+Let p and q be the propositions “Swimming at the New
+Jersey shore is allowed” and “Sharks have been spotted
+near the shore,” respectively. Express each of these compound
+propositions as an English sentence.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item $\neg q$ 
+\item $p \wedge q$ 
+\item $\neg p \vee q$
+\item $p \rightarrow \neg q$ 
+\item $\neg q \rightarrow p$ 
+\item $\neg p \rightarrow \neg q$
+\item $p \leftrightarrow \neg q$ 
+\item $\neg p \wedge (p \vee \neg q)$
+\end{compactenum}
+\end{problem}
+\begin{solution}\ \\
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Sharks have not been spotted near the shore.
+\item Swimming at the new jersey shore is allowed and sharks have been spotted near the shore.
+\item Swimming at the new jersey shore is not allowed or sharks have been spotted near the shore.
+\item If swimming at the new jersey shore is allowed then sharks have note been spotted near the shore.
+\item If sharks have not been spotted near the shore then swimming at the new jersey shore is allowed.
+\item If swimming at the new jersey shore is not allowed, then sharks have been spotted near the shore.
+\item Swimming at the new jersey shore is allowed if and only if sharks have been spotted near the shore.
+\item Swimming at the new jersey shore is not allowed and, swimming is allowed at the new jersey shore or sharks have note been spotted near the shore.
+\end{compactenum}
+\end{solution}
+
+\end{document}

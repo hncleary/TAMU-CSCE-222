@@ -1,0 +1,38 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.1.2]\ \\
+Which of these are propositions? What are the truth values of those that are propositions?
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Do not pass go.
+\item What time is it?
+\item There are no black flies in Maine.
+\item $4 + x = 5$
+\item The moon is made of green cheese.
+\item $2^n >= 100$
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Is not a proposition
+\item Is not a proposition
+\item Is a proposition, and is false. There are black flies in Maine.
+\item Is not a proposition. It is dependent on x.
+\item Is a proposition, and is clearly false.
+\item Is not a proposition. It is dependent on the value of n.
+\end{compactenum}
+\end{solution}
+
+\end{document}

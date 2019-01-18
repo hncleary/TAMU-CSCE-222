@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.2, Problem 12
+\begin{problem}[Rosen.1.2.12]\ \\
+Are these system specifications consistent? “If the file
+system is not locked, then new messages will be queued.
+If the file system is not locked, then the system is functioning
+normally, and conversely. If new messages are not
+queued, then they will be sent to the message buffer. If
+the file system is not locked, then new messages will be
+sent to the message buffer. New messages will not be sent
+to the message buffer.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The file system is locked\ \\
+q: new messages will be queued\ \\
+r: the system is functioning normally\ \\
+s: the new messages will be sent to the message buffer\ \\
+\ \\
+The following can be written with the given propositions:\ \\
+1. $\neg p \rightarrow  q$\ \\
+2. $\neg p \leftrightarrow r$\ \\
+3. $\neg q \rightarrow s$\ \\
+4. $\neg p \rightarrow a$ \ \\
+5. $\neg s$\ \\
+\ \\
+All propositions coincide. All 5 can be true at once. The system is consistent.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

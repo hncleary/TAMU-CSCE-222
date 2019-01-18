@@ -1,0 +1,134 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+%%% CONSTANTS
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\problemsetnumber}[0]{4}
+\newcommand{\mydate}[0]{12 February}
+\newcommand{\myname}[0]{Hunter Cleary}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}
+\chead{Fun Problem \problemsetnumber, \mydate}
+\rhead{Name: \myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+
+\begin{document}
+
+\noindent
+Each fun problem set is worth 2 Extra Credit points.\\
+Due: 16 February 2018 (Friday) before 11:59pm on gradescope (\url{gradescope.com}).\\
+
+\noindent
+\begin{problem}\ \\
+Write a program (in any programming language) that will determine whether a positive integer can be written as the sum of 2 cubes of positive integers in more than one way (like 1729).\\
+\\
+Use your program to find the next largest such integer after 704977.
+\end{problem}
+
+\begin{solution}\ \\
+The next largest such integer after 704977 is:\\ \\
+\begin{verbatim}
+void printCubedSums(int iterations)
+{
+	int num = 1; 
+	int count = 0;
+	while (count < N) 
+	{
+	int counter_s = 0;
+	for (int i = 1; i <= pow(num, 1.0/3); i++){
+		for (int j = i + 1; j <= pow(num, 1.0/3); j++){ 
+			if (j*j*j + i*i*i == num){
+				counter_s++;
+			}
+		}
+	}
+	if (counter_s == 2) 
+	{
+		count++;
+		cout << count << " " << num << endl; 
+	}
+	num++;
+	}
+}
+int main() 
+{
+	printCubedSums(50);
+	return 0;
+}
+\end{verbatim}
+\textbf{The next largest integer is 805688}
+\newpage
+\begin{verbatim}
+Output: 
+1 1729
+2 4104
+3 13832
+4 20683
+5 32832
+6 39312
+7 40033
+8 46683
+9 64232
+10 65728
+11 110656
+12 110808
+13 134379
+14 149389
+15 165464
+16 171288
+17 195841
+18 216027
+19 216125
+20 262656
+21 314496
+22 320264
+23 327763
+24 373464
+25 402597
+26 439101
+27 443889
+28 513000
+29 513856
+30 515375
+31 525824
+32 558441
+33 593047
+34 684019
+35 704977
+36 805688
+37 842751
+38 885248
+39 886464
+40 920673
+41 955016
+42 984067
+43 994688
+44 1009736
+45 1016496
+46 1061424
+47 1073375
+48 1075032
+49 1080891
+50 1092728
+
+\end{verbatim}
+\end{solution}
+
+
+
+
+\end{document}

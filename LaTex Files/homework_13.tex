@@ -1,0 +1,180 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+% settings for algorithm2e psuedocode style
+\usepackage[ruled, linesnumbered, commentsnumbered, noend]{algorithm2e}
+% a few parameters that are set to typeset pseudocode
+\SetAlCapNameSty{textsc}
+\SetProcNameSty{textsc}
+\SetProcArgSty{textsc}
+\SetKw{KwBy}{by}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope and correctly assign problems to pages?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to receive credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{13}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{4 May 2018 (Friday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+\bigskip
+
+%\newpage
+
+% Recursive Algorithms
+\begin{problem} (25 points)
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Give a recursive algorithm for finding the sum of the first $n$ odd positive integers.\\
+\textit{Do not use the closed form solution, do not use a loop.}
+\item Prove that your algorithm is correct.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+ function sum()\ \\
+ parameters: n\ \\
+ \ \\
+ \noindent
+ if n = 1\ \\
+ \indent return 1\ \\
+ \ \\
+ else \ \\
+ \indent return $2(n-1) + 1 +$ sum$(n-1)$\ \\
+ \ \\
+ \ \\
+ sum(5) = 9 + 7 + 5 + 3 + 1 = 25\ \\
+ sum(4) = 7 + 5 + 3 + 1 = 16\ \\
+ sum(3) = 5 + 3 + 1 = 9\ \\
+ sum(2) = 3 + 1 = 4 \ \\
+ sum(1) = 1\ \\
+\end{solution}
+
+\newpage
+
+% Recursive Algorithms
+\begin{problem} (25 points)\\
+Trace the execution of the following recursive algorithm on input $b=2,n=10,m=7$.  That is, show all the steps it uses to compute $2^{10} \pmod{7}$.
+\begin{procedure}
+\caption{mpower($b,n,m$ : integers with $b>0,n\geq 0,m\geq 2$)}
+\DontPrintSemicolon
+\If{$n=0$}{
+\Return{$1$}
+}
+\ElseIf{n is even}{
+\Return{$mpower(b,n/2,m)^2 \mod m$}
+}\Else{
+\Return{$((mpower(b,(n-1)/2,m)^2 \mod m) \cdot (b \mod m)) \mod m$}
+}
+\tcp*[l]{output is $b^n \mod m$}
+\end{procedure}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+$MPOWER(2,10,7)$\ \\
+n is even\ \\
+$MPOWER(2,5,7)^2$ $\% 7$\ \\
+n is not even\ \\
+$MPOWER(2,5/2,7)^2$ $\% 7$(2 \% 7) \% 7)\ \\
+$MPOWER(2,2,7)^2$ $\% 7$(2 \% 7) \% 7)\ \\
+n is even\ \\
+$MPOWER(2,2/2,7)^2$ $\% 7$)\ \\
+$MPOWER(2,1,7)^2$ $\% 7$)\ \\
+n is not even\ \\
+$MPOWER(2,1/2,7)^2$ $\% 7$(2 \% 7) \% 7)\ \\
+$MPOWER(2,0,7)^2$ $\% 7$(2 \% 7) \% 7)\ \\
+$MPOWER(2,0,7) = 1$
+\ \\
+\ \\
+$2^{10} \ \% \ 7 =2$
+\ \\ 
+\end{solution}
+
+\newpage
+
+% Counting
+\begin{problem} (25 points)\\
+How many functions are there from the set $\{0,1\}^n$ to the set $\{0,1\}$?  That is, how many boolean functions of $n$ variables are there that map to a single boolean value?  \textit{Example: $\neg$ is a boolean function of 1 variable, $\wedge, \vee, \to, \oplus, \leftrightarrow$ are boolean functions of 2 variables. Hint: every function has different truth table.}
+\end{problem}
+
+\begin{solution}\ \\
+A boolean of one variable has 4 functions that can be constructed. (TRUE / FALSE). A boolean of two variables has 16 functions that can be constructed.\ \\
+$
+\ \\
+p \ q\|F1 \ F2 \ F3 \ F4 \  F5 \ F6 \ F7 \ F8\ \\
+0 \  0\|  0 \  0 \  0  \ 0 \  0 \  0 \  0 \  0\ \\
+0 \  1\|  0 \  0 \  0  \ 0  \ 1 \  1  \ 1  \ 1\ \\
+1 \  0\|  0 \  0 \ 1 \  1 \  0 \  0 \  1  \ 1\ \\
+1 \  1\|  0  \ 1 \  0  \ 1\   0 \  1 \  0  \ 1\ \\
+\ \\
+$
+All functions map to the single boolean value of true or false.
+\end{solution}
+
+\newpage
+
+% Counting
+\begin{problem} (25 points)\\
+Prove that at a party where there are at least two people, there are two people who know the same number of other people there.
+\end{problem}
+
+\begin{solution}\ \\ 
+\ \\
+There will be n people at the party. The max number of people a person can know is n-1. The fewest they can know is 1. (How they get invited.) The are n-1 numbers of people that can be known and n people, so the same number must be applied to two different individiuals.\ \\ 
+\ \\
+-$>$ Pidgeonhole Principle $<$-
+\end{solution}
+
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 21
+\begin{problem}[Rosen.1.2.21]\ \\
+% Delete from 19 - 23
+\ \\
+Exercises 19 $\rightarrow$ 23 relate to inhabitants of the island of knights
+and knaves created by Smullyan, where knights always tell
+the truth and knaves always lie. You encounter two people,
+A and B. Determine, if possible, what A and B are if they
+address you in the ways described. If you cannot determine
+what these two people are, can you draw any conclusions?\ \\
+\ \\
+\textbf{21.} A says “I am a knave or B is a knight” and B says nothing
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: A is a knight\ \\
+q: B is a knight\ \\
+\ \\
+$\neg p$: A is a knave\ \\
+$\neg q$: B is a knave\ \\
+\ \\
+Consider the possibility that A is knight. He must tell the truth and one of his statements is true. Since A is a knight then his statement 'I am a knave' is false but 'B is a knight' is true. Therefore, A is a knight and B is knight.\ \\
+\ \\
+Consider the possibility that A is a knave. A must lie and both statements would be false. When A tells that “I am a knave”, it is true. Therefore, A is not a knave.\ \\
+\ \\
+Therefore, \textbf{A is a knight and B is knight}.
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

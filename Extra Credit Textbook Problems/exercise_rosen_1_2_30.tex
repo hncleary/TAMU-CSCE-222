@@ -1,0 +1,60 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 30
+\begin{problem}[Rosen.1.2.30]\ \\
+% Delete from 19 - 23
+\ \\
+Exercises 24 $\rightarrow$ 31 relate to inhabitants of an island on which
+there are three kinds of people: knights who always tell the
+truth, knaves who always lie, and spies (called normals by
+Smullyan [Sm78]) who can either lie or tell the truth. You
+encounter three people, A, B, and C. You know one of these
+people is a knight, one is a knave, and one is a spy. Each of the
+three people knows the type of person each of other two is. For
+each of these situations, if possible, determine whether there
+is a unique solution and determine who the knave, knight, and
+spy are. When there is no unique solution, list all possible
+solutions or state that there are no solutions.\ \\
+\ \\
+\textbf{30.} A says “I am not the spy,” B says “I am not the spy,” and C says “A is the spy.”
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\begin{table}[htbp]
+  \centering
+  \caption{Truth Table}
+    \begin{tabular}{llllr}
+    A     & B     & C     & Truth & \multicolumn{1}{l}{Possible?} \\
+    knight & knave & spy   & T,T,F &  \\
+    knight & spy   & knave & T,F,F & \multicolumn{1}{l}{Yes} \\
+    knave & knight & spy   & T,T,F &  \\
+    knave & spy   & knight & T,F,F &  \\
+    spy   & knight & knave & F,T,T &  \\
+    spy   & knave & knight & F,T,T &  \\
+    \end{tabular}%
+  \label{tab:addlabel}%
+\end{table}%
+\ \\
+\textbf{A is the knight, B is the spy, and C is the knave.}
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

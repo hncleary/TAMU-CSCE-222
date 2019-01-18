@@ -1,0 +1,42 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+
+% Chapter 1.1, Problem 1
+\begin{problem}[Rosen.1.2.8]\ \\
+Express these system specifications using the propositions
+p “The user enters a valid password,” q “Access is
+granted,” and r “The user has paid the subscription fee”
+and logical connectives (including negations).
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item “The user has paid the subscription fee, but does not enter a valid password.”
+\item “Access is granted whenever the user has paid the subscription fee and enters a valid password.”
+\item “Access is denied if the user has not paid the subscription fee.”
+\item “If the user has not entered a valid password but has paid the subscription fee, then access is granted.”
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: The user enters a valid password\ \\
+q: Access is granted\ \\
+r: The user has paid the subscription fee\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item $r \wedge \neg p$
+\item $(r \wedge p) \rightarrow q$
+\item $\neg r \rightarrow \neg q$
+\item $(\neg p \wedge r) \rightarrow q$
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,200 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+% settings for algorithm2e psuedocode style
+\usepackage[ruled, linesnumbered, commentsnumbered, noend]{algorithm2e}
+% a few parameters that are set to typeset pseudocode
+\SetAlCapNameSty{textsc}
+\SetProcNameSty{textsc}
+\SetProcArgSty{textsc}
+\SetKw{KwBy}{by}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope and correctly assign problems to pages?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to receive credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{9}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{30 March 2018 (Friday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+
+% complexity of algorithms
+\begin{problem} (33 points)
+\begin{compactenum}
+\item Show that this algorithm determines the number of 1 bits in the bit string $S$:\\
+\begin{procedure}[H]
+\caption{bit-count()}
+\KwIn{$S$ : bit string}
+\KwOut{the number of 1s in $S$}
+\DontPrintSemicolon
+$count \gets 0$\;
+\While{$S \neq 0$}{
+	$count \gets count + 1$\;
+	$S \gets S \wedge (S-1)$\;
+}
+\Return{$count$}
+\end{procedure}
+Note: $S-1$ is the bitstring obtained by changing the rightmost 1 bit of $S$ to a 0 and all the 0 bits to the right of this to 1s.  $S \wedge (S-1)$ is the bitwise $AND$ of $S$ and $S-1$.
+\item Give a big-$O$ estimate for the number of bitwise $AND$ operations needed to find the number of 1 bits in a string $S$ using the algorithm in part (a).
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+
+\textbf{1.} Set count equal to zero. While bit string does not equal 0, add one to count and removes one instance of 1 from the string. Repeat until string is all 0. The count will then be the number of ones that was present in the original string.\ \\
+\ \\
+\indent 
+\textbf{2.} Using the algorithm in part a will require $O(n)$ operations. The loop will make comparisons a number of times equal to the input. While not every loop will call upon the AND operation, the calls to this operation will be some value $n*input$.
+\end{solution}
+
+\newpage
+
+% complexity of algorithms
+\begin{problem}(33 points)
+\begin{compactenum}
+\item Use pseudocode to express the following algorithm for finding the smallest and largest integers in a list of $n$ integers.
+\begin{quote}
+Examine pairs of successive elements, keeping track of a temporary maximum and a temporary minimum.  If $n$ is odd, both the temporary maximum and the temporary minimum should be initialized to the first element.  If $n$ is even, the initial values of the temporary maximum and temporary minimum should be found by comparing the first two elements of the list.  The temporary maximum and temporary minimum should be updated by comparing them to the maximum and minimum of the pair of elements being examined.
+\end{quote}
+\item Show that this algorithm uses $O(n)$ comparisons in the worst case, with $C=1.5$. \textit{Note: if your implementation uses more than $1.5n$ comparisons, you have not correctly implemented the algorithm.}
+\end{compactenum}
+\end{problem}
+
+\begin{solution}
+\ \\
+\textbf{1.} \ \\
+function tempMaxAndMin\ \\
+input numberArray\ \\
+output Min and Max\ \\
+\ \\
+length = length(numberArray)\ \\
+if length is odd\ \\
+set tempmax = numberArray[1]\ \\
+set tempmin = numberArray[1]\ \\
+set start = 1\ \\
+\ \\
+if length is even\ \\
+ if $numberArray[1] > numberArray[2]$\ \\
+ numberArray[1] = tempmax\ \\
+ numberArray[2] = tempmin \ \\
+ else if $numberArray[2] > numberArray[1]$\ \\
+ numberArray[2] = tempmax\ \\
+ numberArray[1] = tempmin \ \\
+ set start = 2\ \\
+ \ \\
+ n = start\ \\
+ for start to length(numberArray) counting by one \ \\
+ if $numberArray[1] > numberArray[2]$\ \\
+ if $numberArray[1] > tempmax$ tempmax = numberArray[1]\ \\
+ else if $ numberArray[2] < tempmin$ = tempmin = numberArray[2]  \ \\
+ if $numberArray[2] > numberArray[1]$\ \\
+ if $numberArray[2] = tempmax$ tempmax = numberArray[2] \ \\
+ if $numberArray[1] < tempmin$ tempmin = numberArray[1]\ \\
+ \ \\
+ output tempmax, tempmin\ \\
+ \ \\
+ \textbf{2.} \ \\
+ The function iterates through the array, examining consecutive pairs of elements. As pairs are compared local mins and maxes are found, removing the cost of comparing every element to one another. This results in the function being $O(n)$.
+
+
+\end{solution}
+
+\newpage
+
+% complexity of algorithms
+\begin{problem} (34 points)
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Explain how to use a brute-force algorithm to find the first occurrence of a given string of $m$ characters, called the \textbf{target}, in a string of $n$ characters, where $m \leq n$, called the \textbf{text}.\\
+\textit{Hint: Think in terms of finding a match for the first character of the target and checking successive characters for a match, and if they do not all match, moving the start location one character to the right.}
+\item Express your algorithm in pseudocode.
+\item Give a big-$O$ estimate for the worst-case time complexity of the brute-force algorithm you described.
+\item Give an example of a worst-case input.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textbf{a.}\ \\
+Convert the given string of characters into an array. Starting with the first character in a a string of n characters, cycle through the text find a value equal to the first value of the target. If the succesive values of the text do not equal the target, try again until they do.\ \\
+\ \\
+\textbf{b.}\ \\
+function targetInText\ \\
+input text, target\ \\
+output targetStartingPoint (integer)\ \\
+\ \\
+for i=1 ; length(text) ; i++\ \\
+if text[i] == target[1]
+%\indent for j=1 ; length target ; j++\ \\
+j = 1
+while text[i+j] == target[1+j]\ \\
+\indent j++\ \\
+\indent if j = length of target\ \\
+\indent \indent return i\ \\
+\ \\
+\textbf{c.}\ \\
+If the target were to be a sequence of the target minus the last value until the last set of values, the worst case would be produced. The target would not be found until the end of the text and would check sequences of letters multiple times. Resulting in $O((n-1)^m)$ comparisons.
+\ \\
+\ \\
+\textbf{d.}\ \\
+|Worst Case |\ \\
+target = "mmmml"\ \\
+text = "mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmml"\ \\
+(Or some variation based on the length $n$ of the text.)\ \\
+The function would have to brute force its way through the first 3 values of the target that occur in succession in the text until it reached the last 4 characters and completed.\ \\
+\end{solution}
+
+
+
+
+\end{document}

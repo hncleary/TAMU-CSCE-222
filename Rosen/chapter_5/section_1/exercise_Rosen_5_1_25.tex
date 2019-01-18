@@ -1,0 +1,67 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+\usepackage[ruled]{algorithm2e}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+
+\begin{document}
+
+
+% Chapter 5.1, Problem 25
+\begin{problem}[Rosen.5.1.25]\ \\
+Prove by mathematical induction on $n$ that if $h > -1$, then $1+nh \leq (1+h)^n$ for all nonnegative integers $n$.  This is called \textbf{Bernoulli's inequality}.
+\end{problem}
+
+\begin{solution}\ \\
+{\color{red}
+$P(n) := $ if $h > -1$, then $1+nh \leq (1+h)^n$\\
+\\
+\textbf{Basis Step:} $P(0)$
+
+Let $h > -1$.
+
+$1 + nh = 1 + (0)h = 1$
+
+$(1+h)^0 = 1$
+
+$1=1$ \checkmark
+
+$\therefore P(0)$ holds.\\
+\\
+\textbf{Inductive Step:} $P(k) \to P(k+1)$
+
+Assume $P(k)$ for some $k \geq 0$: if $h > -1$, then $1+kh \leq (1+h)^k$.
+
+Show $P(k+1):$ if $h > -1$, then $1+(k+1)h \leq (1+h)^{k+1}$
+
+Let $h > -1$.
+
+(Started on LHS, got stuck.  Trying again from RHS)
+
+$(1+h)^{k+1}$
+
+$= (1+h)^k(1+h)$
+
+$\geq (1+kh)(1+h)$ by inductive hypothesis
+
+$= 1 + h + kh + kh^2$
+
+$= 1 + (k+1)h + kh^2$
+
+$\geq 1 + (k+1)h$ since $k \geq 0$ \checkmark
+
+$\therefore P(k) \to P(k+1)$ holds.\\
+\\
+$\therefore P(n)$ holds for all $n \geq 0$ by PMI. \qed
+}
+\end{solution}
+
+\end{document}

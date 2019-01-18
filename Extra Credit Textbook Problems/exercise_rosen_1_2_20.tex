@@ -1,0 +1,49 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 20
+\begin{problem}[Rosen.1.2.20]\ \\
+% Delete from 19 - 23
+\ \\
+Exercises 19 $\rightarrow$ 23 relate to inhabitants of the island of knights
+and knaves created by Smullyan, where knights always tell
+the truth and knaves always lie. You encounter two people,
+A and B. Determine, if possible, what A and B are if they
+address you in the ways described. If you cannot determine
+what these two people are, can you draw any conclusions?\ \\
+\ \\
+\textbf{20.} A says “The two of us are both knights” and B says “A is a knave.”\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textit{Propositions}:\ \\
+p: A is a knight\ \\
+q: B is a knight\ \\
+\ \\
+$\neg p$: A is a knave\ \\
+$\neg q$: B is a knave\ \\
+\ \\
+Consider the possibility that A is a knight. The statement $p \wedge q$ is True. Therefore, B is also a knight. But if B is truthful then $\neg p$ is true, which is contradictory.\ \\
+\ \\
+Consider the possibility of A being a knave. The statement of B is then true and the system is consistent. \textbf{B is a knight and A is a knave}.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

@@ -1,0 +1,52 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+
+\theoremstyle{definition}
+\newtheorem*{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+\begin{document}
+
+% Hunter Cleary
+% Chapter 1.2, Problem 34
+\begin{problem}[Rosen.1.2.34]\ \\
+\ \\
+Five friends have access to a chat room. Is it possible to
+determine who is chatting if the following information is
+known? Either Kevin or Heather, or both, are chatting.
+Either Randy or Vijay, but not both, are chatting. If Abby
+is chatting, so is Randy. Vijay and Kevin are either both
+chatting or neither is. If Heather is chatting, then so are
+Abby and Kevin. Explain your reasoning\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}} 
+\textit{Propositions}:\ \\
+(1) Either Kevin or Heather, or both, are chatting:\ \\
+(2) Either Randy or Vijay, but not both are chatting: \ \\
+(3) If Abby is chatting, so is Randy: \ \\
+(4) Vijay and Kevin are both either chatting or neither is: \ \\
+(5) If Heather is chatting then so are Abby and Kevin: \ \\
+\ \\
+There are two possible cases:\ \\
+(1) Kevin is chatting.\ \\
+(2) Heather is chatting.\ \\
+\ \\
+Case 2 is impossible. If Heather is chatting then Kevin and Abby are chatting. If Kevin is chatting then Vijay is also chatting. If Abby is chatting, so is Randy. Randy and Vijay can't both chat. Case 1 is possible.\ \\
+\ \\
+Therefore \textbf{Kevin is chatting.}\ \\
+
+
+
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

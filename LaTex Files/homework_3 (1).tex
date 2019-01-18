@@ -1,0 +1,243 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to receive credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{3}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{11 February 2017 (Sunday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+
+% RULES OF INFERENCE
+\begin{problem} (25 points)\\
+What rule of inference is used in each of these arguments?
+\begin{compactenum}
+\item Kangaroos live in Australia and are marsupials.  Therefore, kangaroos are marsupials.
+\item It is either hotter than 100 degrees Fahrenheit today or the pollution is dangerous.  It is less than 100 degrees Fahrenheit outside today. Therefore, the pollution is dangerous.
+\item Linda is an excellent swimmer.  If Linda is an excellent swimmer, then she can work as a lifeguard.  Therefore, Linda can work as a lifeguard.
+\item Steve will work at a tech company this summer.  Therefore, this summer Steve will work at a tech company or he will be a beach bum.
+\item If I work all night on this homework, then I can solve all the exercises.  If I can solve all the exercises, I will understand the material.  Therefore, if I work all night on this homework, then I will understand the material.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item Let p = kangaroos live in australia\ \\
+\indent Let q = kangaroos are marsupials \ \\
+\indent $p \wedge q \therefore q$ through \textbf{simplification}\ \\
+
+\item Let p = it is hotter than 100 degrees F \ \\
+\indent Let q = the pollution is dangerous\ \\
+\indent $p \vee q$\ \\
+\indent $\neg p$\ \\
+\indent $\therefore q$ through \textbf{disjunctive syllogism}\ \\
+
+\item Let p = Linda is an excellent swimmer\ \\
+\indent Let q = Linda can work as a lifeguard\ \\
+\indent $p \to q$\ \\
+\indent $p$\ \\
+\indent $\therefore q$ through \textbf{modus ponens}\ \\
+
+\item Let p = Steve will work at a tech company this summer\ \\
+\indent Let q = Steve will be a beach bum\ \\
+\indent $ p $\ \\
+\indent $\therefore p \vee q$ through \textbf{addition}\ \\
+
+\item Let p = I work all night on this homework\ \\
+\indent Let q = I can solve all the exercises\ \\
+\indent Let r = I will understand the material\ \\
+\indent $p \to q$\ \\
+\indent $q \to r$\ \\
+\indent $\therefore p \to r$ through \textbf{hypothetical syllogism}\ \\
+
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% RULES OF INFERENCE
+\begin{problem} (25 points)\\
+Determine whether this argument is valid.  If it is valid, prove validity using the rules of inference.  If it is invalid, prove invalidity by giving a counterexample.
+\begin{displayquote}
+If Wonder Woman was able and willing to prevent evil, she would do so.  If Wonder Woman were unable to prevent evil, she would be impotent; if she were unwilling to prevent evil, she would be malevolent.  Wonder Woman does not prevent evil.  If Wonder Woman exists, she is neither impotent nor malevolent.  Therefore, Wonder Woman does not exist.
+\end{displayquote}
+\textit{There is no need to use quantifiers and predicates.  Just use propositions.}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+Let:\ \\ p = is able to prevent evil\ \\
+f = is willing to prevent evil\ \\
+q = would prevent evil\ \\
+r = is impotent\ \\
+m = is malevolent\ \\
+w = Wonder Woman exists\ \\
+\ \\
+Assume: \ \\ 
+$(p \wedge f) \to q$\ \\
+$\neg p \to r$\ \\
+$\neg f \to m$\ \\
+$\neg q$
+$w \to (\neg r \wedge \neg m)$\ \\
+\ \\
+Rules of Inference:\ \\
+$(p \wedge f) \to q$\ \\
+$\equiv \neg(p \vee  f) \vee q$ & \text{definition of implication}\ \\
+$\equiv (\neg p \vee \neg f)\vee q$ & \text{de morgans}\ \\
+$\neg q$\ \\
+|||| \ \\
+$\therefore (\neg p \vee \neg f)$ through \textbf{disjunctive syllogism}\ \\
+$\neg p \to r$\ \\
+||||\ \\
+$\therefore (r \vee \neg f)$ through \textbf{modus ponens}\ \\
+$\neg f \to m$\ \\
+||||\ \\
+$\therefore (r \vee m) $ through \textbf{modus ponens}\ \\
+$w \to (\neg r \wedge \neg m)$\ \\
+||||\ \\
+$\therefore \neg w $ through \textbf{modus tollens}\ \\ \\
+
+"Wonder Woman does not exist"\ \\
+The argument is \textbf{valid}.\ \\
+
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% RULES OF INFERENCE
+\begin{problem} (25 points)\\
+Identify the error or errors in this argument that supposedly shows that if $\forall x\ (P(x) \vee Q(x))$ is true then $\forall x\ P(x) \vee \forall x\ Q(x)$ is true.\\
+\begin{tabular}{llll}
+1 & (1) & $\forall x\ (P(x) \vee Q(x))$ & A\\
+1 & (2) & $P(c) \vee Q(c)$ & 1 $\forall$ instantiation\\
+1 & (3) & $P(c)$ & 2 simplification\\
+1 & (4) & $\forall x\ P(x)$ & 3 $\forall$ generalization\\
+1 & (5) & $Q(c)$ & 2 simplification\\
+1 & (6) & $\forall x\ Q(x)$ & 5 $\forall$ generalization\\
+1 & (7) & $\forall x\ P(x) \vee \forall x\ Q(x)$ & 4,6 conjunction
+\end{tabular}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}\ \\
+The error exists on lines 3 \& 5. $(P \vee Q)$ does not imply P and does not imply Q. $(P \wedge Q)$ implies both and would work through simplification.
+
+\end{compactenum}
+\end{solution}
+
+\newpage
+
+% RULES OF INFERENCE
+\begin{problem} (25 points)\\
+\begin{compactenum}
+\item Use resolution to show that the hypotheses ``Donald is a bad boy or Hillary is a good girl'', and ``Donald is a good boy or Vladimir is happy'' imply the conclusion ``Hillary is a good girl or Vladimir is happy''.
+\item Use resolution to show that the hypotheses ``It is not raining or Madeleine has her umbrella'', ``Madeleine does not have her umbrella or she does not get wet'', and ``It is raining or Madeleine does not get wet'' imply that ``Madeleine does not get wet''.
+\item Show that the equivalence $p \wedge \neg p \equiv \mathbf{F}$ can be derived using resolution together with the fact that a conditional statement with a false hypothesis is true. \textit{Hint: Let $q=r=\mathbf{F}$ in resolution.}
+\item Use resolution to show that the compound proposition $((p \vee q) \wedge (\neg p \vee \neg q)) \wedge ((p \vee \neg q) \wedge (\neg p \vee q))$ is not satisfiable.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\begin{compactenum}
+\item Let: \ \\
+\indent d = donald is a happy boy\ \\
+\indent h = hillary is a good girl\ \\
+\indent p = vladimir is happy\ \\ \ \\
+\indent Inferences:\ \\
+\indent $(d \vee h)$\ \\
+\indent $(\neg d \vee p)$\ \\
+||||| \ \\
+$\therefore (h \vee p)$ \textbf{Resolution}\ \\
+\ \\
+\item Let: \ \\
+r= it is raining\ \\
+m = Madeleine has an umbrella\ \\
+s = Madeleine gets wet\ \\
+\ \\
+Assume:\ \\
+$(\neg r \vee m)$\ \\
+$(\neg m \vee \neg s)$\ \\
+$(r \vee \neg s)$\ \\
+\ \\
+Inferences: \ \\
+$(\neg r \vee m)$\ \\
+$(\neg m \vee \neg s)$\ \\
+|||||\ \\
+$\therefore(\neg r \vee \neg s)$ \textbf{Resolution}\ \\
+$(r \vee \neg s)$\ \\
+|||||\ \\
+$\therefore(\neg s \vee \neg s)$ \textbf{Resolution}\ \\
+$\neg s$ \text{Idempotent}\ \\ \ \\
+``Madeleine does not get wet''\ \\ \ \\
+\item
+$\ \ p \vee q$\ \\
+$\neg p \vee q$\ \\
+||||\ \\
+$\therefore q \vee r$ (Resolution)\ \\
+$F \to x $ is always true regardless of the truth value of x.\ \\
+Let $q=r=F$\ \\
+$((p \vee F ) \wedge (\neg p \vee F )) → (F \vee F )$\ \\
+\therefore $p \wedge \neg p \equiv F$\ \\
+\item $((p \vee q) \wedge (\neg p \vee \neg q)) \wedge ((p \vee \neg q) \wedge (\neg p \vee q))$\ \\
+$(p \vee \neg q) \ \\(\neg p \vee q)$\ \\ 
+|||||\ \\ 
+$(\therefore \neg q \vee q)$ \ \ \ (Resolution)\ \\
+This is not satisfiable for it cannot exist.\ \\
+
+\end{compactenum}
+\end{solution}
+
+\end{document}

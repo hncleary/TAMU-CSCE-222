@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Problem Set #1}\end{center}}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-501,502}
+\chead{Fun Problem 11, 9 April}
+\rhead{Name: Hunter Cleary}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+
+\begin{document}
+
+
+\noindent
+Each fun problem is worth 2 Extra Credit points.\\
+Due: 13 April 2018 (Friday) before 11:59pm on gradescope (\url{gradescope.com}).\\
+
+\noindent
+A group of people with assorted eye colors live on an island. They are all perfect logicians -- if a conclusion can be logically deduced, they will do it instantly. No one knows the color of their eyes. Every night at midnight, a ferry stops at the island. Any islanders who have figured out the color of their own eyes then leave the island, and the rest stay. Everyone can see everyone else at all times and keeps a count of the number of people they see with each eye color (excluding themselves since they cannot see their own eye color), but they cannot otherwise communicate. Everyone on the island knows all the rules in this paragraph.\\
+\\
+On this island there are 100 blue-eyed people, 100 brown-eyed people, and the Guru (she happens to have green eyes). So any given blue-eyed person can see 100 people with brown eyes and 99 people with blue eyes (and one with green), but that does not tell them their own eye color; as far as they know the totals could be 101 brown and 99 blue. Or 100 brown, 99 blue, and they could have red eyes.\\
+\\
+The Guru is allowed to speak exactly once, on exactly one day in all their endless years on the island. On that day, standing before the islanders, she says: "I can see someone who has blue eyes."\\
+\\
+\textbf{Who leaves the island, and on what night?} \textit{The answer is not ``no one leaves.''}\footnote{There are no mirrors or reflecting surfaces. It is not a trick question, and the answer is logical. It doesn't depend on tricky wording or anyone lying or guessing, and it doesn't involve people doing something silly like creating a sign language or doing genetic analysis. The Guru is not making eye contact with anyone in particular; she's simply saying ``I count at least one blue-eyed person on this island who isn't me.''}\\
+Hint: consider the case where only 1 person on the island has blue eyes, then reason inductively.\ \\
+\ \\
+\begin{solution}\ \\
+\ \\
+On day 100, all of the people with blue eyes will leave.\ \\
+\ \\
+If one person were to have blue eyes, they would leave on the first day. They would the only individual they could not observe, and would deduce their eye color.\ \\
+\ \\
+If two people were to have blue eyes, they would leave on the second day. Each person would assume the other was the only blue eyed person, and then wait one day. When the first person did not leave, they would deduce their eye color and leave on the second day.\ \\
+\ \\
+An individual will assume n people have blue eyes from what he can see. The process described when there are two people will be play out for n participants. A person who has not decided his eye color will wait n numbers of days in order to see that others with eye colors of blue have not yet left. Upon seeing this, they will deduce their own eye color.
+\end{solution}
+
+\end{document}

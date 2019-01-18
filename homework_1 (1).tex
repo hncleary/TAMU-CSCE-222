@@ -1,0 +1,176 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to recieve credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{YOUR NAME HERE}
+\newcommand{\homeworknumber}[0]{1}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{28 January 2017 (Sunday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+
+% PROPOSITIONAL LOGIC
+\begin{problem}\ \\
+Let $p,q,r$ be the propositions
+\begin{compactenum}
+\item[$p:$] Grizzly bears have been seen in the area.
+\item[$q:$] Hiking is safe on the trail.
+\item[$r:$] Berries are ripe along the trail.
+\end{compactenum}
+Write these propositions using $p,q,r$ and logical connectives:
+\begin{compactenum}
+\item Berries are ripe along the trail, but grizzly bears have not been seen in the area.
+\item Grizzly bears have not been seen in the area and hiking on the trail is safe, but berries are ripe along the trail.
+\item If berries are ripe along the trail, hiking is safe if and only if grizzly bears have not been seen in the area.
+\item It is not safe to hike on the trail, but grizzly bears have not been seen in the area and the berries along the trail are ripe.
+\item For hiking on the trail be safe, it is necessary but not sufficient that the berries not be ripe along the trail and for grizzly bears not to have been seen in the area.
+\item Hiking is not safe on the trail whenever grizzly bears have been seen in the area and berries are ripe along the trail.
+\end{compactenum}
+Construct a truth table for any 2 of the propositions (your choice).
+\end{problem}
+
+%\begin{solution}\ \\
+%\end{solution}
+
+%\newpage
+
+\begin{problem}\ \\
+Four friends have been identified as suspects for unauthorized access into a computer system.  They have made statements to the investigating authorities.  Alice said ``Carlos did it.''  Bob said ``I did not do it.''  Carlos said ``Diana did it.''  Diana said ``Carlos is a liar''.
+\begin{compactenum}
+\item If exactly one of the four is telling the truth, who did it?  Explain your reasoning.
+\item If exactly one of the four is lying, who did it?  Explain your reasoning.
+\end{compactenum}
+\end{problem}
+
+%\begin{solution}\ \\
+%\end{solution}
+
+%\newpage
+
+% PROPOSITIONAL LOGIC
+\begin{problem}\ \\
+The following specification is taken from the specification of a telephone system:
+\begin{displayquote}
+If the directory database is opened, then the monitor is put in a closed state, if the system is not in its initial state.
+\end{displayquote}
+Find an equivalent, easier to understand, specification that involves only disjunctions and negations.
+\end{problem}
+
+%\begin{solution}\ \\
+%\end{solution}
+
+%\newpage
+
+% PROPOSITIONAL LOGIC
+\begin{problem}\ \\
+Use logical equivalences to determine the correct equivalence for each expression:\\
+Answer Bank:\\
+\begin{tabular}{|l|l|l|l|l|l|l|l|}
+\hline
+$T$ & $p$         & $q$         & $p \wedge q$             & $p \wedge \neg q$ & $\neg p \wedge q$ & $\neg p \wedge \neg q$ & $p \oplus q$\\
+\hline
+$F$ & $\neg p$ & $\neg q$ & $\neg p \vee \neg q$ & $\neg p \vee q$     & $p \vee \neg q$      & $p \vee q$                      & $p \leftrightarrow q$\\
+\hline
+\end{tabular}
+\begin{compactenum}
+\item $p \vee (\neg (p \to p) \vee (\neg p \wedge (\neg p \vee (p \wedge (p \vee p))))) \equiv \rule{1cm}{0.01cm}$
+\item $(((p \vee p) \vee p) \to \neg p) \to (\neg (\neg (p \wedge \neg p) \vee \neg (p \wedge \neg (p \to p))) \wedge \neg (p \to (p \wedge \neg p))) \equiv \rule{1cm}{0.01cm}$
+\item $p \to \neg (((p \wedge p) \leftrightarrow \neg p) \oplus ((p \vee (p \leftrightarrow p)) \leftrightarrow p)) \equiv \rule{1cm}{0.01cm}$
+\item $\neg \neg (\neg \neg (p \vee \neg \neg \neg q) \wedge \neg q) \to \neg \neg \neg \neg \neg ((\neg (q \wedge \neg (q \to q)) \wedge \neg \neg q) \wedge \neg p) \equiv \rule{1cm}{0.01cm}$
+\item $\neg \neg q \wedge ((q \to \neg p) \wedge \neg ((p \to ((q \to \neg q) \wedge p)) \to \neg p)) \equiv \rule{1cm}{0.01cm}$
+\item $(\neg\neg\neg((p \to ( q \wedge \neg q)) \wedge \neg ( p \leftrightarrow (\neg q \vee q))) \vee ( \neg ( \neg p \vee \neg q) \vee \neg ( \neg q \vee \neg \neg \neg q))) \equiv \rule{1cm}{0.01cm}$
+\item $(\neg \neg q \wedge (\neg \neg \neg p \wedge \neg \neg p)) \wedge \neg \neg \neg (\neg (\neg \neg q \vee \neg p) \wedge ((p \to \neg \neg p) \vee \neg \neg p)) \equiv \rule{1cm}{0.01cm}$
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\textit{Example}
+\begin{align*}
+ & (\neg ((p \vee p) \to p) \vee \neg \neg \neg \neg p) & \\
+\equiv & (\neg ((p \vee p) \to p) \vee \neg \neg p) & \text{double negation}\\
+\equiv & (\neg ((p \vee p) \to p) \vee p) & \text{double negation}\\
+\equiv & (\neg (p \to p) \vee p) & \text{idempotent}\\
+\equiv & (\neg (\neg p \vee p) \vee p) & \text{definition of implication}\\
+\equiv & (\neg T \vee p) & \text{negation (tautology)}\\
+\equiv & (F \vee p) &\\
+\equiv & p & \text{identity}
+\end{align*}
+\end{solution}
+
+%\newpage
+
+% PROPOSITIONAL LOGIC
+\begin{problem}\ \\
+A set of logical operators is called {\bf functionally complete} if every compound proposition is logically equivalent to a compound proposition involving only these logical operators.  For example, the set $\{\neg,\wedge,\vee\}$ is functionally complete.  Furthermore, due to De Morgan's laws, each of the sets $\{\neg,\wedge\}$ and $\{\neg,\vee\}$ are also functionally complete.  The singleton set $\{\downarrow\}$ (NOR) is functionally complete, and $\downarrow$ is therefore called a universal operator since all statements in propositional logic can be formed using only $\downarrow$.  The same is true of $\{\mid\}$ (NAND).  $\{\downarrow\}$ and $\{\mid\}$ are the only 1-element functionally complete operator sets, but there are several 2-element functionally complete operator sets, of which $\{\neg,\wedge\}$ and $\{\neg,\vee\}$ are just two examples.
+\begin{compactenum}
+\item Show that $\{\neg,\wedge,\vee\}$ is a functionally complete set of logical operators.\\
+\textit{Hint: every truth table over $n$ variables can be expressed in \textbf{disjunctive normal form} (a disjunction of conjunctions that specifies when the compound proposition is true).}
+\item Show that $\{\neg,\wedge\}$ is a functionally complete set of logical operators.\\
+\textit{(Give a logical equivalence for disjunction that involves only negation and conjunction, then construct a truth table to show that the equivalence is valid.)}
+\item Show that $\{\mid\}$ is a functionally complete set of logical operators.\\
+\textit{(Give logical equivalences for negation and conjunction that involve only NAND, then construct a truth table to show that the equivalences are valid.)}
+\item Express the following propositions using only NAND.\\
+\textit{You must show your work.  If you cannot show your work, find another way to solve it.}
+\begin{compactenum}
+\item $p \vee q$
+\item $p \to q$
+\item $p \oplus q$
+\end{compactenum}
+\end{compactenum}
+\end{problem}
+
+%\begin{solution}\ \\
+%\end{solution}
+
+\end{document}

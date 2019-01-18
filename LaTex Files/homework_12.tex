@@ -1,0 +1,340 @@
+\documentclass{article}
+\usepackage{amsmath,amssymb,amsthm,latexsym,paralist,url}
+\usepackage[margin=1in]{geometry}
+\usepackage{tikz}
+\usetikzlibrary{arrows,automata}
+\usepackage{csquotes}
+
+% settings for algorithm2e psuedocode style
+\usepackage[ruled, linesnumbered, commentsnumbered, noend]{algorithm2e}
+% a few parameters that are set to typeset pseudocode
+\SetAlCapNameSty{textsc}
+\SetProcNameSty{textsc}
+\SetProcArgSty{textsc}
+\SetKw{KwBy}{by}
+
+\theoremstyle{definition}
+\newtheorem{problem}{Problem}
+\newtheorem*{solution}{Solution}
+\newtheorem*{resources}{Resources}
+
+
+\newcommand{\honor}{\noindent \textbf{Aggie Honor Statement: }On my honor as an Aggie, I have neither
+  given nor received any unauthorized aid on any portion of the academic work included in this assignment.
+}
+
+ 
+\newcommand{\checklist}{\noindent\textbf{Checklist:}
+Did you...
+\begin{compactenum}
+\item abide by the Aggie Honor Code?
+\item solve all problems?
+\item start a new page for each problem?
+\item show your work clearly?
+\item type your solution?
+\item submit a PDF to gradescope and correctly assign problems to pages?
+\end{compactenum}
+}
+
+\newcommand{\problemset}[1]{\begin{center}\textbf{Homework #1}\end{center}}
+\newcommand{\duedate}[1]{\begin{quote}\textbf{Due: #1} on gradescope (\url{gradescope.com}). \\You must show your work in order to receive credit.\end{quote}}
+
+%%% CONSTANTS
+\newcommand{\mysemester}[0]{Spring 2018}
+\newcommand{\mysectionnumber}[0]{501,502}
+\newcommand{\myname}[0]{Hunter Cleary}
+\newcommand{\homeworknumber}[0]{12}
+
+%%% HEADERS & FOOTERS
+\usepackage{fancyhdr} % This should be set AFTER setting up the page geometry
+\pagestyle{fancy} % options: empty , plain , fancy
+\renewcommand{\headrulewidth}{0pt} % customise the layout...
+\lhead{CSCE 222-\mysectionnumber}\chead{Homework \homeworknumber}\rhead{\myname}
+\lfoot{}\cfoot{\thepage}\rfoot{}
+
+\title{CSCE 222: Discrete Structures for Computing\\Section \mysectionnumber\\\mysemester}
+\author{\myname}
+\date{}
+
+\begin{document}
+
+\maketitle
+\problemset{\homeworknumber}
+\duedate{23 April 2018 (Monday) before 11:59 p.m.}
+\bigskip
+
+\honor
+\bigskip
+
+\checklist
+\bigskip
+
+\newpage
+
+\noindent
+\textbf{Strong Induction Template:}
+
+\noindent
+Let $P(n):=$ PREDICATE, when $n\geq BASE\ CASE$\\
+\\
+\textbf{Basis Step:} $P(BASE\ CASE\ 1), \ldots, P(BASE\ CASE\ m)$ \\
+
+WORK TO SHOW BASE CASE(S)\\
+
+$\therefore P(BASE\ CASE\ 1), \ldots, P(BASE\ CASE\ m)$ hold.\\
+\\
+\textbf{Inductive Step:} $(P(BASE\ CASE\ 1), \ldots, P(k))\implies P(k+1)$
+
+Assume $P(i)$ for $BASE\ CASE\ 1 \leq i \leq k$ some $k\geq BASE\ CASE\ m:$ STATE $P(i)$
+
+Show $P(k+1):$ STATE $P(k+1)$\\
+
+WORK
+
+USE INDUCTIVE HYPOTHESIS \hfill (by inductive hypothesis)
+
+WORK TO SHOW $P(k+1)$\\
+
+$\therefore  (P(BASE\ CASE\ 1), \ldots, P(k))\implies P(k+1)$ holds for $k \geq BASE\ CASE$.\\
+
+\noindent
+$\therefore P(n)$ holds for all $n \geq BASE\ CASE\ 1$ by strong induction. \qed
+
+\vfill
+
+\noindent
+\textbf{Structural Induction Template:}
+
+\noindent
+Let $P(s):=$ PREDICATE, when $s \in S$\\
+\\
+\textbf{Basis Step:} $P(BASE\ CASE(S)\ OF\ RECURSIVE\ DEFINITION\ OF\ S)$ \\
+
+WORK TO SHOW BASE CASE(S)\\
+
+$\therefore  P(BASE\ CASE(S))$ hold.\\
+\\
+\textbf{Recursive Step:} $(P(s_1) \wedge \cdots \wedge P(s_k))\implies (P(t_1) \wedge \cdots P(t_j))$, where $t_1,\ldots,t_j$ are constructed from $s_1,\ldots,s_k$
+
+Assume $P(s_i)$ for $1 \leq i \leq k$, where $s_i \in S:$ STATE $P(i)$
+
+Show $P(t_l)$ for $1 \leq l \leq j$, where $t_l$ is constructed from $s_1,\ldots,s_k$ : STATE $P(t_l)$\\
+
+WORK
+
+USE INDUCTIVE HYPOTHESIS \hfill (by inductive hypothesis)
+
+WORK TO SHOW $P(t_l)$\\
+
+$\therefore (P(s_1) \wedge \cdots \wedge P(s_k))\implies P(t)$, where $t$ is constructed from $s_1,\ldots,s_k,$ holds.\\
+
+\noindent
+$\therefore P(s)$ holds for all $s \in S$ by structural induction. \qed
+
+\vfill
+
+\newpage
+
+% strong induction
+\begin{problem} (25 points)\\
+Let $P(n) := $ "postage of $n$ cents can be formed using just 4- and 7-cent stamps".  The parts of this exercise outline a proof by strong unduction that $P(n)$ is true for all $n \geq 18$. 
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Show statements $P(18), P(19), P(20)$, and $P(21)$ are true, completeing the basis step of the proof.
+\item What do you need to prove in the inductive step?
+\item What is the inductive hypothesis of the proof?
+\item Complete the inductive step for $k \geq 21$.
+\item Explain why these steps show that this statement is true whenever $n\geq18$.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+
+\noindent
+Let $P(n) := $ "postage of $n$ cents can be formed using just 4- and 7-cent stamps", when $n\geq 18\\
+\\
+\textbf{Basis Step:} \ $P(18), \ldots, P(21)$ \\
+\ \\
+\noindent
+$P(18) = 7(2) + 4(1) $\ \\
+$P(19) = 7(1) + 4(3) $\ \\
+$P(20) = 7(0) + 4(5) $\ \\
+$P(21) = 7(3) + 4(0) $\ \\
+\ \\
+$\therefore P(18), \ldots, P(21)$ hold.\\
+\\
+\textbf{Inductive Step:} $(P(18), \ldots, P(k))\implies P(k+1)$
+\noindent
+\ \\
+\ \\
+Assume $P(i)$ for $18 \leq i \leq k$ some $k\geq 18
+$\exists \ a,b$ such that $P(i) = 7a + 4b$\ \\
+Show $P(k+1)$ : $\exists \ a,b$ such that $P(i) = 7a + 4b$\ \\
+\ \\
+\noindent
+To form $k+1$ cents:\ \\
+form k-3 cents of stamps \hfill (by inductive hypothesis)\ \\
+add one 4 cent stamp\ \\
+\ \\
+\noindent 
+$P(k-3) + 4 = P(k+1) $\\
+\ \\
+\noindent
+\ \\
+$\therefore  (18), \ldots, P(k))\implies P(k+1)$ holds for $k \geq B18$\\
+
+\noindent
+$\therefore P(n)$ holds for all $n \geq 18$ by strong induction. \qed
+
+\vfill
+
+\end{solution}
+
+\newpage
+
+% strong induction
+\begin{problem} (25 points)\\
+Suppose you begin with a pile of $n$ stones and split this pile into $n$ piles of one stone each by successively splitting a pile of stones into two smaller piles.  Each time you split a pile, you multiply the number of stones in each of the two smaller piles you form, i.e. if these piles have $r$ and $s$ stones in them, respectively, you compute $rs$.  Show that no matter how you split the piles, the sum of the products you computed at each step equals $n(n-1)/2$.
+\end{problem}
+
+\begin{solution}\ \\
+
+\noindent
+Let $P(s):=$ sum of rs at each step is $n(n-1)/2$\\
+\\
+\textbf{Basis Step:} $P(1,2,3)$ \\
+P(1) = 1 , pile cannot be divided into separate wholes.\ \\
+P(2) = 2 , pile is split into 2 piles of one stone each. $1*1=1$\ \\
+\ \\
+\noindent
+$\therefore  P(1),P(2)$ hold.\\
+\ \\
+\textbf{Inductive Step:} $P(1), \ldots, P(k))\implies P(k+1)$\ \\
+
+Assume $P(n)$ for $1 \leq n \leq k$ some $k\geq 1 :$ P(k) = sum of rs is $i(i-1)/2$\ \\
+
+Show $P(k+1):$ $P(k+1) =$ sum of rs is still  $n(n-1)/2$\ \\
+
+Assume a pile of size n will yield a product of $n(n-1)/2$\ \\
+
+A pile of $k+1-n$ will yield a pile of size $(k+1-n)(k+1-n-1)/2$ \hfill (by inductive hypothesis)\ \\
+
+$n(k+1 -n) + n(n-1)/2 + (k+1-n)(k+1-n-1)/2 =$\ \\
+
+$nk + n - n2 +  n2/ 2 - n/2 + k2 /2 -kn/2 + k/2 - n/2 -kn/2 + n2/ 2 =$\ \\
+
+$k2 /2 + k/2 = $\ \\
+
+$(k+1)(k+1-1)/2 $\ \\
+
+$\therefore  (P(1), \ldots, P(k))\implies P(k+1)$ holds for $k \geq 1\\
+
+
+$\therefore P(n)$ holds for all $n \geq 1$ by strong induction. \qed
+\ \\
+\end{solution}
+
+
+\newpage
+
+% recursive definitions
+\begin{problem} (25 points)\\
+Give a recursive definition of:
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item $\{a_n\}$, where $a_n = n(n+1)$ for $n \in \mathbb{N}$
+\item $S_m(n)$, the sum of $m \in \mathbb{Z}$ and $n \in\mathbb{N}$
+\item The set of polynomials with integer coefficients
+\item The set of bitstrings that have more 0s than 1s
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\textbf{a.}\ $a_n = 2n + a_{n-1} $ \ \\
+\ \\
+\textbf{b.}\ $S_m(n) = n + S_m(n-1)$\ \\
+\ \\
+\textbf{c.}\ $a_n = a_{n} + (a_{n-1}*x^{n-1}) $  where $a_0 \in \mathbb{Z}$\ \\ 
+\ \\
+\textbf{d.}\ $a_0 = "001" \ or \ "010" \ or \ "100" $ \ \\
+$a_n = a_{n-1} + x$ , where $x \in "01" , "10"$\ \\
+\ \\
+
+
+\end{solution}
+
+
+\newpage
+
+% structural induction
+\begin{problem} (25 points)\\
+The \textbf{reversal} of a string is the string consisting of the symbols of the string in reverse order.  The reversal of the string $w$ is denoted by $w^R$.
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumi}}
+\item Find the reversal of the following bitstrings. (\textit{the spaces are for ease of reading only})
+\begin{compactenum}
+\renewcommand{\theenumi}{\alph{enumii}}
+\item 0101
+\item 1 1011
+\item 1000 1001 0111
+\end{compactenum}
+\item Give a recursive definition of the reversal of a string. \textit{Hint: First, define the reversal of the empty string.  Then write a string of length $n+1$ as $xy$, where $x$ is a string of length $n$, and express the reversal of $w$ in terms of $x^R$ and $y$.}
+\item Use structural induction to prove that $(w_1w_2)^R=w_2^Rw_1^R$.
+\end{compactenum}
+\end{problem}
+
+\begin{solution}\ \\
+\ \\
+\textbf{a.}\ \\
+(a.) 1010\ \\
+(b.) 11011\ \\
+(c.) 111010010001\ \\
+\ \\
+\textbf{b.}\ \\
+w = "" , $w^R$= ""\ \\
+w = "0" , $w^R$= "0"\ \\
+w = "$x$y" , $w^R$ = "y$x^R$"\ \\
+\ \\
+\textbf{c.}\ \\
+\noindent
+Let $P("xy"):=$ $"y^Rx^R"$, when $"xy" \in S$\\
+\\
+\textbf{Basis Step:} $P("xy")$ \\
+
+\noindent
+$P("xy") = "yx"$ \checkmark\ \\
+$P("xy") = "yx^R" = "yx"$ \checkmark\ \\
+
+\noindent
+$\therefore  P("xy")$ hold.\\
+\\
+\textbf{Recursive Step:} \ \\
+\ \\
+$(P("xy") \wedge \cdots \wedge P("x\dots y"))\implies (P("yx") \wedge \cdots P("y \dots x"))$, where $"yx",\ldots,"y \dots x"$ are constructed from $"xy",\ldots,"x \dots y"$
+\ \\
+\ \\
+Assume $P("xy")$ for $1 \leq n \leq k$, where $x_n \in X:$ $P(n) = "y_n^Rx_n^R"$
+\ \\
+Show $P("y_lx_l")$ for $1 \leq l \leq j$, where $"y_lx_l"$ is constructed from $"x_ny_n",\ldots,"x \dots y"$ : $P(n) = "y_n^Rx_n^R"$\\
+\ \\
+P("xy") = "yx"\ \\
+P("$x_ny_n$") = "$y_n^Rx_n^R$" \hfill (by inductive hypothesis)\ \\
+$P("x_n") = "x_n^R"$\\
+$P("y_n") = "y_n^R"$\\
+$P("y_nx_n") = "x_n^Ry_n^R"$\\
+\ \\
+$\therefore P("y_lx_l")$ for $1 \leq l \leq j$, where $"y_x_"$ is constructed from $"x_ny_n",\ldots,"x \dots y"$ holds.\\
+
+\noindent
+$\therefore P("xy")$ holds for all $"xy" \in S$ by structural induction. \qed
+
+
+
+
+
+\end{solution}
+
+
+
+
+\end{document}
